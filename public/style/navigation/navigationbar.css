@@ -1,0 +1,131 @@
+.navigation-bar {
+    position: relative;
+    padding-top: 5rem;
+    padding-left: 8rem;
+    width: 90%;
+    display: flex;
+}
+
+
+.logo {
+    width: var(--w-logo-col);
+}
+.logo > img {width: 10rem; height: 10rem;}
+
+.navi {
+    width: calc(100% - var(--w-logo-col));
+}
+
+.parent-menu {
+    list-style-type: none;
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+
+.parent-menu .child-menu {
+    position: relative;
+    width: 21rem;
+}
+
+.parent-menu .child-menu > a {text-align: center;}
+
+a {
+    text-decoration: none;
+    color:  white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.c-child-menu {
+    position: absolute;
+    list-style-type: none;
+    opacity: 0;
+    visibility: hidden;
+    width: 21rem;
+}
+
+a:hover {
+    transition: 0.3s;
+    background-color: rgba(0, 0, 255, 0.349);
+    /* text-underline-position: under; */
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 4px;
+}
+
+.child-menu:hover .c-child-menu {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s;
+    background-color: rgba(0, 0, 255, 0.178);
+}
+
+.icon {
+    display: none;
+    position: relative;
+}
+
+
+
+@media screen and (max-width: 760px) {
+    :root {
+        --w-logo-col: 100%;
+    }
+
+    a {font-size: 1rem;}
+    
+    .navigation-bar {
+        padding: 0;
+        width: 100%;
+    }
+
+    .navigation-bar, .parent-menu {
+        flex-direction: column;
+    }
+    .navi {
+        visibility: hidden;
+        opacity: 0;
+    }
+    .parent-menu {
+        left: 0;
+        right: 0;
+        background-color: blue;
+    }
+
+    .parent-menu .child-menu { width: unset;}
+    
+    .c-child-menu {
+        position: unset; 
+        display: none; 
+        width: 100%; 
+        text-align: center; 
+    }
+
+    .child-menu:hover .c-child-menu {
+        display: block;
+        background-color: rgba(151, 151, 216, 0.507);
+    }
+
+    .logo {
+        position: absolute;
+        padding-top: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .logo > img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    .icon a {
+        position: absolute;
+        right: 0;
+    }
+}
