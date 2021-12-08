@@ -1,0 +1,94 @@
+.navigation-bar {
+    background-image: linear-gradient(yellow, red);
+    margin: auto;
+    padding-left: 0;
+    width: 100%;
+}
+
+.logo > img {
+    margin-top: -3rem;
+    padding-bottom: 3rem;
+    padding-left: 8rem;
+}
+
+.navi {
+    bottom: 0;
+}
+
+.parent-menu {
+    bottom: 0;
+}
+.c-child-menu li {
+    background-color: red;
+}
+
+@media screen and (max-width: 760px) {
+    .body {
+        margin-top: 5rem;
+        /* display: none; */
+    }
+
+    :root {
+        --w-logo-col: 100%;
+    }
+
+    a {font-size: 1rem;}
+    
+    .navigation-bar {
+        padding: 0;
+        width: 100%;
+        min-height: 5rem;
+        position: unset;
+    }
+
+    .navigation-bar, .parent-menu {
+        flex-direction: column;
+    }
+    .navi {
+        visibility: hidden;
+        opacity: 0;
+    }
+    .parent-menu {
+        left: 0;
+        right: 0;
+        bottom: unset;
+        background-color: blue;
+    }
+    
+    .parent-menu .child-menu { width: unset;}
+    
+    .c-child-menu {
+        position: unset; 
+        display: none; 
+        width: 100%; 
+        text-align: center; 
+    }
+    
+    .child-menu:hover .c-child-menu {
+        display: block;
+        background-color: rgba(204, 204, 224, 0.507);
+    }
+
+    .navigation-bar .logo {
+        position: absolute;
+        padding-top: 0.5rem;
+        padding-left: 0 rem;
+    }
+    .logo > img {
+        width: 4rem;
+        height: 4rem;
+        margin-top: 0rem;
+        padding-bottom: 0rem;
+        padding-left: 0.5rem;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    .icon a {
+        position: absolute;
+        right: 0;
+        padding: 1.8rem;
+      }
+    }

@@ -7,14 +7,14 @@ const nav = `
             <ul class="parent-menu">
                 <li class="child-menu"><a href="index.html?topic=homepage">HOME</a></li>
                 <li class="child-menu">
-                    <a href="#">SUBJECT</a>
+                    <a href="index.html?topic=subject">SUBJECT</a>
                     <ul class="c-child-menu">
-                        <li><a href="index.html?topic=IT">Information technology</a></li>
-                        <li><a href="index.html?topic=EL">English</a></li>
-                        <li><a href="index.html?topic=DA">Datascience</a></li>
+                        <li><a href="index.html?topic=subject/IT">Information technology</a></li>
+                        <li><a href="index.html?topic=subject/EL">English</a></li>
+                        <li><a href="index.html?topic=subject/DA">Datascience</a></li>
                     </ul>
                 </li>
-                <li class="child-menu"><a href="index.html?topic=Me">ABOUT ME</a></li>
+                <li class="child-menu"><a href="index.html?topic=me">ABOUT ME</a></li>
             </ul>
         </div>
         <div class="icon">

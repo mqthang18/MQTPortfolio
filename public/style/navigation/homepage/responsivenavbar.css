@@ -1,0 +1,58 @@
+@media screen and (max-width: 760px) {
+    :root {
+        --w-logo-col: 100%;
+    }
+
+    a {font-size: 1rem;}
+    
+    .navigation-bar {
+        padding: 0;
+        width: 100%;
+    }
+
+    .navigation-bar, .parent-menu {
+        flex-direction: column;
+    }
+    .navi {
+        visibility: hidden;
+        opacity: 0;
+    }
+    .parent-menu {
+        left: 0;
+        right: 0;
+        background-color: blue;
+    }
+
+    .parent-menu .child-menu { width: unset;}
+    
+    .c-child-menu {
+        position: unset; 
+        display: none; 
+        width: 100%; 
+        text-align: center; 
+    }
+
+    .child-menu:hover .c-child-menu {
+        display: block;
+        background-color: rgba(151, 151, 216, 0.507);
+    }
+
+    .logo {
+        position: absolute;
+        padding-top: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .logo > img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    .icon a {
+        position: absolute;
+        right: 0;
+    }
+}
