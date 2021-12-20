@@ -5,5 +5,6 @@ try {
         template: test
     })
 } catch (err) {
+    // console.log(err)
     window.location.href = url;
 }

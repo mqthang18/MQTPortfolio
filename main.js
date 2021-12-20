@@ -28,22 +28,22 @@
                 3: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './public/js/homepage/homepage.js']
+                    2: ['src', './public/js/homepage/homepage.js'],
                 }],
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', topic],
-                    2: ['src', './src/views/blocks/navigationbar.vue.js']
+                    2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
                 5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/'.concat(topic,'/content.vue.js')]
+                    2: ['src', './src/views/pages/'.concat(topic,'/content.vue.js')],
                 }],
                 6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/models/'.concat(topic,'.js')]
+                    2: ['src', './src/models/'.concat(topic,'.js')],
                 }]
             }
 
@@ -70,22 +70,22 @@
                 3: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './public/js/homepage/homepage.js']
+                    2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/blocks/navigationbar.vue.js']
+                    2: ['src', './src/views/pages/homepage/homepage.vue.js'],
                 }],
                 5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/homepage/homepage.vue.js']
+                    2: ['src', './public/js/homepage/homepage.js'],
                 }],
                 6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/models/homepage.js']
+                    2: ['src', './src/models/homepage.js'],
                 }]
             }
 

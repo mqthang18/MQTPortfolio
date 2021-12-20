@@ -1,0 +1,21 @@
+.body {
+    padding-top: 5rem;
+    width: 90vw;
+    margin: auto;
+    font-size: 1.6rem;
+    font-family: Calibri, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.7rem;
+}
+
+.col {
+    width: 16%;
+    border: 1px solid;
+    min-height: 25rem;
+}
+
+.col div {
+    width: 98%;
+    margin: auto;
+}

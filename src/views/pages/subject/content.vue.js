@@ -3,7 +3,15 @@ var subject = [
     <div class="container">`,
         `
         <div class="body">
-            <h1>Hello word</h1>
+            <div class="body">
+                <div v-for="abc in listBlogs" class="col">
+                    <div>
+                        <h3> {{ abc.title }} </h1>
+                        <p> {{ abc.DateCreated }} </p>
+                        <p> {{ abc.Author }} </p>
+                    </div>
+                </div>
+            </div>
         </div>
         `,
     `</div></div>`
