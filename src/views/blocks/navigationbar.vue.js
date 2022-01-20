@@ -9,9 +9,7 @@ const nav = `
                 <li class="child-menu">
                     <a href="index.html?topic=subject">SUBJECT</a>
                     <ul class="c-child-menu">
-                        <li><a href="index.html?topic=subject/IT">Information technology</a></li>
-                        <li><a href="index.html?topic=subject/EL">English</a></li>
-                        <li><a href="index.html?topic=subject/DA">Datascience</a></li>
+
                     </ul>
                 </li>
                 <li class="child-menu"><a href="index.html?topic=me">ABOUT ME</a></li>
@@ -24,3 +22,7 @@ const nav = `
         </div>
     </div>
 `
+
+/* <li><a href="index.html?topic=subject/IT">Information technology</a></li>
+<li><a href="index.html?topic=subject/EL">English</a></li>
+<li><a href="index.html?topic=subject/DA">Datascience</a></li> */

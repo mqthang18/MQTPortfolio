@@ -1,12 +1,12 @@
 .navigation-bar {
-    background-image: linear-gradient(yellow, red);
+    /* background-image: linear-gradient(yellow, red); */
+    background-color: rgb(28, 28, 87);
     margin: auto;
     padding-left: 0;
     width: 100%;
 }
 
 .logo > img {
-    margin-top: -3rem;
     padding-bottom: 3rem;
     padding-left: 8rem;
 }
@@ -18,8 +18,10 @@
 .parent-menu {
     bottom: 0;
 }
+
 .c-child-menu li {
-    background-color: red;
+    /* background-color: red; */
+    background-color: rgb(28, 28, 87);
 }
 
 @media screen and (max-width: 760px) {

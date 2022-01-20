@@ -16,17 +16,34 @@
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 6rem;
 }
+
 .body > p {
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 6rem;
-    padding-left: 24rem;
+    font-size: 3rem;
+    padding-left: 30rem;
 }
+
 .body > p > span {
     font-weight: 900;
     font-style: italic;
 }
 
+.body > h1, p {
+    position: relative;
+    animation-name: example;
+    animation-duration: 0.45s;
+    transition: 0.45s;
+    animation-direction: reverse;
+}
+
+@keyframes example {
+    0%   {color:white; left:0px; bottom:0px; opacity: 1;}
+    25%   {color:white; left:0px; bottom:15px; opacity: 0.75;}
+    50%   {color:white; left:0px; bottom:30px; opacity: 0.5;}
+    75%   {color:white; left:0px; bottom:45px; opacity: 0.25;}
+    100% {color:whitesmoke; left:0px; bottom:50px; opacity: 0;}
+}
 
 @media screen and (max-width: 760px) {
     .body {display: none;}
