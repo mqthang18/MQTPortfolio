@@ -6,20 +6,16 @@
     width: 100%;
     min-height: 18%;
 }
-
 .logo > img {
     padding-bottom: 3rem;
     padding-left: 8rem;
 }
-
 .navi {
     bottom: 0;
 }
-
 .parent-menu {
     bottom: 0;
 }
-
 .c-child-menu li {
     /* background-color: red; */
     background-color: rgb(28, 28, 87);
@@ -55,7 +51,7 @@
         left: 0;
         right: 0;
         bottom: unset;
-        background-color: blue;
+        background-color: rgb(28, 28, 87);
     }
     
     .parent-menu .child-menu { width: unset;}

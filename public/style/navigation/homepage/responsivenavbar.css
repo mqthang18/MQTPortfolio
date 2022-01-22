@@ -20,7 +20,7 @@
     .parent-menu {
         left: 0;
         right: 0;
-        background-color: blue;
+        background-color: rgb(28, 28, 87);
     }
 
     .parent-menu .child-menu { width: unset;}
