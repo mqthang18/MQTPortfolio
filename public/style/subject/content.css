@@ -1,21 +1,71 @@
+:root {
+    --Background-color: #efefef;
+    --body-width: 90vw;
+    --Content-width: 70%;
+    --News-width: calc(100% - var(--Content-width) );
+}
+
 .body {
     padding-top: 5rem;
-    width: 90vw;
+    width: var(--body-width);
     margin: auto;
     font-size: 1.6rem;
     font-family: Calibri, sans-serif;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 1.7rem;
 }
 
-.col {
-    width: 16%;
+/* Body Head */
+
+.body > .LiPostHead {
+    background-color: var(--Background-color);
+    width: 100%;
+    padding: 1rem 0 1rem 1rem;
+}
+
+.body > .LiPostHead > span {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+/* Body Content */
+.body > .bodyContent {
+    display: flex;
+    width: var(--body-width);
+    padding-top: 1rem;
+}
+
+.body > .bodyContent > .Content {
+    display: flex;
+    width: calc( var(--Content-width) - 1%);
+    padding-right: 1rem;
+    margin: auto;
+
+    font-size: 1.6rem;
+    font-family: Calibri, sans-serif;
+    flex-wrap: wrap;
+    column-gap: 1.2rem;
+}
+
+.body > .bodyContent > .Content > .Posts {
+    width: 200px;
     border: 1px solid;
     min-height: 25rem;
+    margin-top: 10px;
 }
 
-.col div {
+.Posts div {
     width: 98%;
     margin: auto;
+}
+
+/* News */
+.body > .bodyContent > .News {
+    width: var(--News-width);
+    background-color: var(--Background-color);
+    height: 500px;
+}
+
+.body > .bodyContent > .News > p {
+    width: 100%;
 }

@@ -4,6 +4,7 @@
     margin: auto;
     padding-left: 0;
     width: 100%;
+    min-height: 18%;
 }
 
 .logo > img {

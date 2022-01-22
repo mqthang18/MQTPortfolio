@@ -1,30 +1,27 @@
 try {
     "use strict";
     var listBlog; 
-    subject = subject[0].concat(nav, subject[1], subject[2])
+    subject = subject[0].concat(nav, subject[1], footer, subject[2])
     test = subject
+    data = []
+    for (var i = 0; i < dataDA.length; i++) {
+        data.push(dataDA[i]) 
+    }
+    for (var i = 0; i < dataIT.length; i++) {
+        data.push(dataIT[i]) 
+    }
+    for (var i = 0; i < dataEL.length; i++) {
+        data.push(dataEL[i]) 
+    }
+
+    console.log(data)
     var app;
     app = new Vue({
         el: "#app",
         template: test,
         data: {
-            listBlogs: [
-                {
-                    "title": "Những kỹ năng cần thiết để đạt kết quả tốt trong kỳ thi IELTS",
-                    "DateCreated": "12-08-2021",
-                    "Author": "MQT"
-                },
-                {
-                    "title": "Những kỹ năng cần thiết để để trở thành một Datascience pro",
-                    "DateCreated": "12-08-2021",
-                    "Author": "MQT"
-                },
-                {
-                    "title": "Những kỹ năng cần thiết để thiết kế một logo",
-                    "DateCreated": "12-08-2021",
-                    "Author": "MQT"
-                }
-            ]
+            listBlogs: data,
+            Category: category
         }
     })
 } catch (err) {

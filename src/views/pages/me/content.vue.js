@@ -2,7 +2,7 @@ var me = [
     `<div class="wrapper" id="homepage" name="homepage">
 <div class="container">`, `
     <div class="body">
-        <h1>Introduction</h1>
+        <h1>About me</h1>
         <p>Welcome to my portforlio! My name is Thang. I'm in Long Xuyen, Viet Nam.</p>
         <p>My major is data engineer and biotech.</p>
         <p>My english is in B level. And I'm trying to impove it for my CV!</p>

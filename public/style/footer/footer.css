@@ -1,0 +1,19 @@
+.footer {
+    background-color: rgb(28, 28, 87);
+    position: relative;
+    height: 200px;
+    margin-top: 114px;
+}
+
+.footer > div {
+    position: absolute;
+    right: 0;
+    margin: 2rem 2rem 0 0;
+    color: white;
+}
+
+.footer > .content > p {
+    /* color: white; */
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.8rem;
+}

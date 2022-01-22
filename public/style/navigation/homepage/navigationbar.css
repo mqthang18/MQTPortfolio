@@ -6,7 +6,6 @@
     display: flex;
 }
 
-
 .logo {
     width: var(--w-logo-col);
 }
@@ -48,14 +47,6 @@ a {
     width: 21rem;
 }
 
-a:hover {
-    transition: 0.3s;
-    background-color: rgba(0, 0, 255, 0.349);
-    /* text-underline-position: under; */
-    text-decoration-line: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 4px;
-}
 
 .child-menu:hover .c-child-menu {
     visibility: visible;
@@ -69,5 +60,11 @@ a:hover {
     position: relative;
 }
 
-
-
+a:hover {
+    transition: 0.3s;
+    background-color: rgba(0, 0, 255, 0.349);
+    /* text-underline-position: under; */
+    text-decoration-line: underline;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 4px;
+}
