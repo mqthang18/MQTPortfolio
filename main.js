@@ -2,7 +2,7 @@
         var url = window.location.href;
         var url = new URL(url);
         var topic = url.searchParams.get("topic");
-        if (topic !== null && topic == 'subject') {
+        if (topic == 'subject') {
             // Xóa các DOM trong trang homepage
             var myobj = document.getElementsByName("homepage");
             for (var index = myobj.length - 1; index >= 0; index--) {
