@@ -2,7 +2,7 @@
         var url = window.location.href;
         var url = new URL(url);
         var topic = url.searchParams.get("topic");
-        if (topic == 'subject') {
+        if (topic == 'subject/IT' || topic == 'subject/DA' || topic == 'subject/EL') {
             // Xóa các DOM trong trang homepage
             var myobj = document.getElementsByName("homepage");
             for (var index = myobj.length - 1; index >= 0; index--) {
@@ -28,7 +28,7 @@
                 3: ['head', 'link', {
                     0: ['rel', "stylesheet"],
                     1: ['name', topic],
-                    2: ['href', './public/style/'.concat(topic,'/content.css')]
+                    2: ['href', './public/style/subject/content.css']
                 }],
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
@@ -53,27 +53,27 @@
                 8: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/'.concat(topic,'/DA/data.js')],
+                    2: ['src', './src/views/pages/'.concat(topic,'/data.js')],
                 }],
+                // 9: ['body', 'script', {
+                //     0: ['name', 'homepage'],
+                //     1: ['id', 'homepage'],
+                //     2: ['src', './src/views/pages/'.concat(topic,'/EL/data.js')],
+                // }],
+                // 10: ['body', 'script', {
+                //     0: ['name', 'homepage'],
+                //     1: ['id', 'homepage'],
+                //     2: ['src', './src/views/pages/'.concat(topic,'/IT/data.js')],
+                // }],
                 9: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/'.concat(topic,'/EL/data.js')],
+                    2: ['src', './src/views/pages/subject/content.vue.js'],
                 }],
                 10: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/'.concat(topic,'/IT/data.js')],
-                }],
-                11: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/'.concat(topic,'/content.vue.js')],
-                }],
-                12: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
-                    2: ['src', './src/models/'.concat(topic,'.js')],
+                    2: ['src', './src/models/subject.js'],
                 }]
             }
 
@@ -153,7 +153,7 @@
                 3: ['head', 'link', {
                     0: ['rel', "stylesheet"],
                     1: ['name', topic],
-                    2: ['href', './public/style/'.concat(topic,'/content.css')]
+                    2: ['href', './public/style/me/content.css']
                 }],
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
@@ -178,12 +178,12 @@
                 8: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/'.concat(topic,'/content.vue.js')],
+                    2: ['src', './src/views/pages/me/content.vue.js'],
                 }],
                 9: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/models/'.concat(topic,'.js')],
+                    2: ['src', './src/models/me.js'],
                 }]
             }
 

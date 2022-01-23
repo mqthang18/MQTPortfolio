@@ -1,4 +1,4 @@
-var dataDA = [
+var data = [
     {
         "title": "Những kỹ năng cần thiết để đạt kết quả tốt trong kỳ thi IELTS",
         "DateCreated": "12-08-2021",

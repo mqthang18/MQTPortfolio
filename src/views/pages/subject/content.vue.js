@@ -4,7 +4,7 @@ var subject = [
         `
         <div class="body">
             <div class="LiPostHead">
-                <span>List Posts</span>
+                <span> {{ ShowCategory }} </span>
             </div>
             <div class="bodyContent">
                 <div class="Content">

@@ -26,20 +26,16 @@
         margin-top: 5rem;
         /* display: none; */
     }
-
     :root {
         --w-logo-col: 100%;
     }
-
     a {font-size: 1rem;}
-    
     .navigation-bar {
         padding: 0;
         width: 100%;
         min-height: 5rem;
         position: unset;
     }
-
     .navigation-bar, .parent-menu {
         flex-direction: column;
     }
@@ -53,21 +49,17 @@
         bottom: unset;
         background-color: rgb(28, 28, 87);
     }
-    
     .parent-menu .child-menu { width: unset;}
-    
     .c-child-menu {
         position: unset; 
         display: none; 
         width: 100%; 
         text-align: center; 
-    }
-    
+    }   
     .child-menu:hover .c-child-menu {
         display: block;
         background-color: rgba(204, 204, 224, 0.507);
     }
-
     .navigation-bar .logo {
         position: absolute;
         padding-top: 0.5rem;
@@ -80,11 +72,9 @@
         padding-bottom: 0rem;
         padding-left: 0.5rem;
     }
-
     .icon {
         display: block;
     }
-
     .icon a {
         position: absolute;
         right: 0;
