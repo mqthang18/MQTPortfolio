@@ -61,17 +61,24 @@
         background-color: rgba(204, 204, 224, 0.507);
     }
     .navigation-bar .logo {
-        position: absolute;
-        padding-top: 0.5rem;
-        padding-left: 0 rem;
+        position: relative;
     }
+
     .logo > img {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        padding-left: 1rem;
+        padding-top: 1rem;
+    }
+
+    /* .logo > img {
         width: 4rem;
         height: 4rem;
         margin-top: 0rem;
         padding-bottom: 0rem;
         padding-left: 0.5rem;
-    }
+    } */
     .icon {
         display: block;
     }

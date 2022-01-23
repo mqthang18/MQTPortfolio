@@ -38,13 +38,14 @@
     }
 
     .logo {
-        position: absolute;
-        padding-top: 0.5rem;
-        padding-left: 0.5rem;
+        position: relative;
     }
     .logo > img {
+        position: absolute;
         width: 4rem;
         height: 4rem;
+        padding-left: 1rem;
+        padding-top: 1rem;
     }
 
     .icon {

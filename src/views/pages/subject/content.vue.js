@@ -23,5 +23,8 @@ var subject = [
             </div>
         </div>
         `,
+        `<div class="ListOrderPage">
+            {{ NumberListPosts }}
+        </div>`,
     `</div></div>`
 ]
