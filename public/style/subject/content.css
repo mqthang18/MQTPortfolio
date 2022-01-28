@@ -114,7 +114,39 @@
     /* border-radius: 1rem; */
 }
 
-.NewBlog > .BlogElement > .item {
+/* .NewBlog > .BlogElement > .item {
+
+} */
+
+@media screen and (max-width: 760px) {
+    .body {
+        width: 100%;
+        position: relative;
+    }
+
+    .body > .bodyContent {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .body > .bodyContent > .Content > .Posts {
+        width: 100%;
+        margin-top: 4rem;
+    }
+
+    .body > .bodyContent > .News {
+        width: 100%;
+    }
+    
+    .OrderPage {
+        position: absolute;
+        top: 0;
+        margin-top: 15.5rem;
+        width: 100%;
+    }
+
+    .OrderPage > div {
+        width: unset;
+    }
 
 }
-
