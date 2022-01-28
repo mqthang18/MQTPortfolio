@@ -7,24 +7,52 @@ var subject = [
                 <span> {{ ShowCategory }} </span>
             </div>
             <div class="bodyContent">
-                <div class="Content">
+                <div id="Content" class="Content">
+                    <div v-for="post in listBlogs[numPage]" class="Posts">
+                        <div>
+                            <h3> {{ post.title }} </h1>
+                            <p> {{ post.DateCreated }} </p>
+                            <p> {{ post.Author }} </p>
+                        </div>
+                    </div> 
+                </div>               
+                <div class="News">
+                    <div v-for="n in news" class="NewBlog">
+                        <div class="BlogElement">
+                            <div class="item">
+                                <div class="itemMessage">
+                                    <h3> {{ n.title }} </h3>
+                                    <div class="BlogNote">
+                                        <p> {{ n.category }} </p>
+                                        <p> {{ n.dateCreated }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `,
+        `<div class="OrderPage">
+            <div>
+                <div id="ListOrderPage" class="ListOrderPage">
+                </div>
+            </div>
+        </div>`,
+    `</div></div>`
+]
+
+                /* 
                     <div v-for="abc in listBlogs" class="Posts">
                         <div>
                             <h3> {{ abc.title }} </h1>
                             <p> {{ abc.DateCreated }} </p>
                             <p> {{ abc.Author }} </p>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="News">
-                    <p>Hello</p>
-                </div>
-            </div>
-        </div>
-        `,
-        `<div class="ListOrderPage">
-            {{ NumberListPosts }}
-        </div>`,
-    `</div></div>`
-]
+                    </div> 
+
+                    
+                */
+
+        

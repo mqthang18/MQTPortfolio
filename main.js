@@ -55,6 +55,11 @@
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/'.concat(topic,'/data.js')],
                 }],
+                9: ['body', 'script', {
+                    0: ['name', 'homepage'],
+                    1: ['id', 'homepage'],
+                    2: ['src', './src/views/pages/subject/News/news.js']
+                }],
                 // 9: ['body', 'script', {
                 //     0: ['name', 'homepage'],
                 //     1: ['id', 'homepage'],
@@ -65,12 +70,12 @@
                 //     1: ['id', 'homepage'],
                 //     2: ['src', './src/views/pages/'.concat(topic,'/IT/data.js')],
                 // }],
-                9: ['body', 'script', {
+                10: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/subject/content.vue.js'],
                 }],
-                10: ['body', 'script', {
+                11: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/models/subject.js'],
