@@ -22,4 +22,9 @@
     .body > .LiPostHead {
         margin-top: 10rem;
     }
+
+    .footer > .content {
+        width: 98%;
+        margin: auto auto;
+    }
 }
