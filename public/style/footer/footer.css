@@ -17,3 +17,9 @@
     font-family: 'Segoe UI', sans-serif;
     font-size: 1.8rem;
 }
+
+@media screen and (max-width: 760px) {
+    .body > .LiPostHead {
+        margin-top: 10rem;
+    }
+}
