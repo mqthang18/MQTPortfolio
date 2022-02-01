@@ -11,8 +11,6 @@ fetch (APIurl).then(res => res.text()).then(rep=>{
     console.log(rep)
     const dataset = JSON.parse(rep.substr(47).slice(0,-2));
     // console.log(dataset.table.rows);
-
-
     // Define varfable
     var data = []
     var dict =  {}
@@ -93,7 +91,17 @@ async function CallUI(subject /*Vue template*/, data /*API*/) {
             news: ListNews
         },
         methods: {
-
+            redirect: function(IDPost) {
+                var url = window.location.href;
+                url = new URL(url);
+                var search_params = url.searchParams;
+                search_params.set('topic', 'post')
+                search_params.set('id',IDPost)
+                url.search = search_params.toString();
+                var new_url = url.toString()
+                // console.log(new_url)
+                window.location.href = new_url
+            }
         },
         computed: {
             ShowCategory: function() {

@@ -9,24 +9,24 @@ var subject = [
             <div class="bodyContent">
                 <div id="Content" class="Content">
                     <div v-for="post in listBlogs[numPage]" class="Posts">
-                        <button style="text-align:unset;">
+                        <div style="text-align:unset;" v-on:click="redirect(post.id)">
                             <h3> {{ post.title }} </h1>
                             <p> {{ post.datecreate }} </p>
                             <p> {{ post.author }} </p>
-                        </button>
+                        </div>
                     </div> 
                 </div>               
                 <div class="News">
                     <div v-for="n in news" class="NewBlog">
                         <div class="BlogElement">
                             <div class="item">
-                                <button class="itemMessage" style="text-align:unset;">
+                                <div class="itemMessage" style="text-align:unset;">
                                     <h3> {{ n.title }} </h3>
                                     <div class="BlogNote">
                                         <p> {{ n.category }} </p>
                                         <p> {{ n.dateCreated }}</p>
                                     </div>
-                                </button>
+                                </div>
                             </div>
                         </div>
                     </div>
