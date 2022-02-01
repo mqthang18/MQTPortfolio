@@ -195,7 +195,7 @@
             for (var i = 0; i < Object.keys(listElement).length; i++) {
                 CreateTag(listElement[i][0], listElement[i][1], listElement[i][2])
             }
-        } else if (topic.slice(0,4) == 'post') {
+        } else if (topic == 'post') {
              // Xóa các DOM trong trang homepage
              var myobj = document.getElementsByName("homepage");
              for (var index = myobj.length - 1; index >= 0; index--) {
