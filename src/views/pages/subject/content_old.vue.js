@@ -11,8 +11,8 @@ var subject = [
                     <div v-for="post in listBlogs[numPage]" class="Posts">
                         <button style="text-align:unset;">
                             <h3> {{ post.title }} </h1>
-                            <p> {{ post.datecreate }} </p>
-                            <p> {{ post.author }} </p>
+                            <p> {{ post.DateCreated }} </p>
+                            <p> {{ post.Author }} </p>
                         </button>
                     </div> 
                 </div>               
@@ -43,5 +43,16 @@ var subject = [
     `</div></div>`
 ]
 
+                /* 
+                    <div v-for="abc in listBlogs" class="Posts">
+                        <div>
+                            <h3> {{ abc.title }} </h1>
+                            <p> {{ abc.DateCreated }} </p>
+                            <p> {{ abc.Author }} </p>
+                        </div>
+                    </div> 
+
+                    
+                */
 
         

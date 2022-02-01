@@ -1,28 +1,65 @@
-try {
+"use strict";
+console.log(topic.split('/'))
+let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=Post";
+var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where C = "'+topic.split('/')[1]+'"';
+console.log(queryStr)
+const query = encodeURIComponent(queryStr);
+console.log(query);
+APIurl = APIurl + '&tq=' + query; 
+console.log(APIurl);
+fetch (APIurl).then(res => res.text()).then(rep=>{
+    console.log(rep)
+    const dataset = JSON.parse(rep.substr(47).slice(0,-2));
+    // console.log(dataset.table.rows);
+
+
+    // Define varfable
+    var data = []
+    var dict =  {}
+    var keys = []
+    // var value = [] 
+    // Get dataset cols and rows
+    var cols = dataset.table.cols
+    var rows = dataset.table.rows
+    // Create list key for dict
+    for (var i = 0; i < Object.keys(cols).length; i++) {
+        keys.push(cols[i].label)
+    }
+    // console.log('Key for larging data')
+    // console.log(keys)
+    // Create list value for dict
+    for (var i = 0; i < Object.keys(rows).length; i++) {
+        // console.log(rows[i].c)
+        var value = {};
+        var el = rows[i].c;
+        for (var j = 0; j < Object.keys(keys).length; j++) {
+            // console.log(keys[j])
+            var lengthEl = Object.keys(el[i]).length;
+            if (el[j] != null) {
+                value[keys[j]] = el[j].v;
+                // console.log(el[j].v)
+            } else {
+                value[keys[j]] = null;
+                // console.log('Null')
+                // console.log(el[j].v)
+            }
+            // value[keys[j]] = el[j];
+        }
+        // console.log(value)
+        data.push(value)
+    }
+    // console.log(data)
+    CallUI(subject /*Vue template*/, data /*API*/)
+})
+
+
+async function CallUI(subject /*Vue template*/, data /*API*/) {
     "use strict";
+    // console.log(data)
     var listBlog; 
     subject = subject[0].concat(nav, subject[1], subject[2], footer, subject[3])
-    test = subject
+    var test = subject
     let PageListBlogs = {} 
-    
-    // if (Math.floor(data.length/12) > 0) {
-    //     var OrderPage = []
-    //     var List = []
-    //     for (var i = 0; i <= Math.ceil(data.length/12); i++) {
-    //         OrderPage.push(i+1);
-    //         if (data.length >= 12) {
-    //             List.push(data.splice(0,12));
-    //         } else {
-    //             List.push(data.splice(0,data.length));
-    //         }        
-    //     }
-    //     for (var i = 0; i < OrderPage.length; i++) {
-    //         PageListBlogs[OrderPage[i]] = List[i]
-    //     }
-    // } else {
-    //     PageListBlogs = data;
-    // }
-
     var OrderPage = []
     var List = []
     var getNumPage = Math.ceil(data.length/12)
@@ -39,15 +76,15 @@ try {
             List.push(data.splice(0,data.length));
         }        
     }
-  
+ 
     for (var i = 0; i < OrderPage.length; i++) {
         PageListBlogs[OrderPage[i]] = List[i]
     }
-
+    // console.log(PageListBlogs)
     var app;
     app = new Vue({
         el: "#app",
-        template: test,
+        template: subject,
         data: {
             numPage: 1,
             listBlogs: PageListBlogs,
@@ -56,10 +93,7 @@ try {
             news: ListNews
         },
         methods: {
-            // ChangeBtn(param) {
-            //     this.numPage = param
-            //     return this.numPage
-            // }
+
         },
         computed: {
             ShowCategory: function() {
@@ -73,8 +107,7 @@ try {
             }
         }
     })
-    
-    // app.NumberListPosts()
+
     var numPage = Object.keys(app.listBlogs).length; // Xac dinh numPage de han che listBlogs data
     if (numPage > 1) {
         var ListNumPage = document.getElementById("ListOrderPage");
@@ -84,8 +117,4 @@ try {
             ListNumPage.appendChild(Numtag).innerText = i + 1;
         }
     }
-    
-} catch (err) {
-    window.location.href = url;
-    // console.log(err)
 }

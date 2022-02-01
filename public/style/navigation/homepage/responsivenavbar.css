@@ -3,7 +3,7 @@
         --w-logo-col: 100%;
     }
 
-    a {font-size: 1rem;}
+    a {font-size: 2rem; font-weight: 500;}
     
     .navigation-bar {
         padding: 0;
@@ -55,5 +55,6 @@
     .icon a {
         position: absolute;
         right: 0;
+        font-size: 2rem;
     }
 }
