@@ -9,7 +9,7 @@ const nav = `
                 <li class="child-menu">
                     <a href="#" onClick="event => {event.preventDefault()}">SUBJECT</a>
                     <ul class="c-child-menu">
-                        <li v-for="item in Category"><a v-bind:href="'index.html?topic='+item.path"> {{ item.category }} </a></li>
+                        <li v-for="item in Category"><a v-bind:href="'index.html?topic='+item.topic+'/'+item.path"> {{ item.category }} </a></li>
                     </ul>
                 </li>
                 <li class="child-menu"><a href="index.html?topic=me">ABOUT ME</a></li>

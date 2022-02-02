@@ -1,95 +1,40 @@
 try {
     "use strict";
     // console.log(topic.split('/'))
-    let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=Post";
+    let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
     var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
     console.log(queryStr)
     var query = encodeURIComponent(queryStr);
     console.log(query);
-    APIurl_1 = APIurl + '&tq=' + query; 
+    APIurl_1 = APIurl + 'Post' + '&tq=' + query; 
     console.log(APIurl);
     fetch (APIurl_1).then(res => res.text()).then(rep=>{
         // console.log(rep)
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
 
         // Define varfable
-        var dataOne = []
-        var dict =  {}
-        var keys = []
-
-        // Get datasetOne cols and rows
-        var cols = datasetOne.table.cols
-        var rows = datasetOne.table.rows
-        // Create list key for dict
-        for (var i = 0; i < Object.keys(cols).length; i++) {
-            keys.push(cols[i].label)
-        }
-
-        // Create list value for dict
-        for (var i = 0; i < Object.keys(rows).length; i++) {
-            // console.log(rows[i].c)
-            var value = {};
-            var el = rows[i].c;
-            for (var j = 0; j < Object.keys(keys).length; j++) {
-                // console.log(keys[j])
-                var lengthEl = Object.keys(el[i]).length;
-                if (el[j] != null) {
-                    value[keys[j]] = el[j].v;
-                    // console.log(el[j].v)
-                } else {
-                    value[keys[j]] = null;
-                    // console.log('Null')
-                    // console.log(el[j].v)
-                }
-                // value[keys[j]] = el[j];
-            }
-            // console.log(value)
-            dataOne.push(value)
-        }
+        var dataOne = HandleAPI(datasetOne)
+        
         // Get data two ============================================
         var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where C = "'+topic.split('/')[1]+'"';
         var query = encodeURIComponent(queryStr);
-        APIurl_2 = APIurl + '&tq=' + query; 
+        APIurl_2 = APIurl + 'Post' + '&tq=' + query; 
         fetch(APIurl_2).then(res => res.text()).then(rep=>{
             const datasetTwo = JSON.parse(rep.substr(47).slice(0,-2));
             // console.log(datasetTwo.table.rows);
             // Define varfable
-            var dataTwo = []
-            var dict =  {}
-            var keys = []
-            // var value = [] 
-            // Get datasetTwo cols and rows
-            var cols = datasetTwo.table.cols
-            var rows = datasetTwo.table.rows
-            // Create list key for dict
-            for (var i = 0; i < Object.keys(cols).length; i++) {
-                keys.push(cols[i].label)
-            }
-            // console.log('Key for larging dataTwo')
-            // console.log(keys)
-            // Create list value for dict
-            for (var i = 0; i < Object.keys(rows).length; i++) {
-                // console.log(rows[i].c)
-                var value = {};
-                var el = rows[i].c;
-                for (var j = 0; j < Object.keys(keys).length; j++) {
-                    // console.log(keys[j])
-                    var lengthEl = Object.keys(el[i]).length;
-                    if (el[j] != null) {
-                        value[keys[j]] = el[j].v;
-                        // console.log(el[j].v)
-                    } else {
-                        value[keys[j]] = null;
-                        // console.log('Null')
-                        // console.log(el[j].v)
-                    }
-                    // value[keys[j]] = el[j];
-                }
-                // console.log(value)
-                dataTwo.push(value)
-            }
-            // console.log(dataTwo)
-            CallUI(subject /*Vue template*/, dataTwo /*API*/, dataOne)
+            var dataTwo = HandleAPI(datasetTwo)
+            
+            // Get navigation category
+            var queryStr = 'Select A, B, C, D';
+            var query = encodeURIComponent(queryStr);
+            var APIurl_3 = APIurl + 'NavTopic' + '&tq=' + query; 
+            fetch(APIurl_3).then(res=>res.text()).then(rep=>{
+                const datasetThree = JSON.parse(rep.substr(47).slice(0,-2));
+                var dataThree = HandleAPI(datasetThree)
+                CallUI(subject /*Vue template*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataThree /*Category for navigation bar*/)
+            })
+            
         })
         
     })
@@ -99,7 +44,7 @@ try {
 }
 
 
-async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/) {
+async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/, Category /*Category for navigation bar*/) {
     "use strict";
     // console.log(data)
     var listBlog; 
@@ -134,7 +79,7 @@ async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/) 
         data: {
             numPage: 1,
             listBlogs: PageListBlogs,
-            Category: category,
+            Category: Category,
             title: topic,
             news: ListNews
         },

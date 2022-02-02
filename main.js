@@ -269,3 +269,34 @@
                     break;
             }
         }
+
+        function HandleAPI(dataset) {
+            // Define variable
+            var data = []
+            var dict =  {}
+            var keys = []
+        
+            // Get datasetOne cols and rows
+            var cols = dataset.table.cols
+            var rows = dataset.table.rows
+            // Create list key for dict
+            for (var i = 0; i < Object.keys(cols).length; i++) {
+                keys.push(cols[i].label)
+            }
+        
+            // Create list value for dict
+            for (var i = 0; i < Object.keys(rows).length; i++) {
+                var value = {};
+                var el = rows[i].c;
+                for (var j = 0; j < Object.keys(keys).length; j++) {
+                    var lengthEl = Object.keys(el[i]).length;
+                    if (el[j] != null) {
+                        value[keys[j]] = el[j].v;
+                    } else {
+                        value[keys[j]] = null;
+                    }
+                }
+                data.push(value);
+            }
+            return data
+        }

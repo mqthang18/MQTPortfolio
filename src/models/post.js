@@ -3,98 +3,37 @@ try {
     // console.log(topic.split('/'))
     var id = url.searchParams.get("id");
     // console.log(id)
-    let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=Post";
+    let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
     var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
     // console.log(queryStr)
     var query = encodeURIComponent(queryStr);
     // console.log(query);
-    APIurl_1 = APIurl + '&tq=' + query; 
+    APIurl_1 = APIurl + 'Post' + '&tq=' + query; 
     // console.log(APIurl);
-
+    // Get data one ==========================================
     fetch(APIurl_1).then(res=>res.text()).then(rep=>{
-        // console.log(rep)
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
-
-        // Define varfable
-        var dataOne = []
-        var dict =  {}
-        var keys = []
-
-        // Get datasetOne cols and rows
-        var cols = datasetOne.table.cols
-        var rows = datasetOne.table.rows
-        // Create list key for dict
-        for (var i = 0; i < Object.keys(cols).length; i++) {
-            keys.push(cols[i].label)
-        }
-
-        // Create list value for dict
-        for (var i = 0; i < Object.keys(rows).length; i++) {
-            // console.log(rows[i].c)
-            var value = {};
-            var el = rows[i].c;
-            for (var j = 0; j < Object.keys(keys).length; j++) {
-                // console.log(keys[j])
-                var lengthEl = Object.keys(el[i]).length;
-                if (el[j] != null) {
-                    value[keys[j]] = el[j].v;
-                    // console.log(el[j].v)
-                } else {
-                    value[keys[j]] = null;
-                    // console.log('Null')
-                    // console.log(el[j].v)
-                }
-                // value[keys[j]] = el[j];
-            }
-            // console.log(value)
-            dataOne.push(value)
-        }
+        var dataOne = HandleAPI(datasetOne)
+        
         // Get data two ============================================
         var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where A = '+id;
         var query = encodeURIComponent(queryStr);
-        APIurl_2 = APIurl + '&tq=' + query; 
+        var APIurl_2 = APIurl + 'Post' + '&tq=' + query; 
         fetch (APIurl_2).then(res=>res.text()).then(rep=>{
-            // console.log(rep)
             const datasetTwo = JSON.parse(rep.substr(47).slice(0,-2));
+            var dataTwo = HandleAPI(datasetTwo)
 
-            // Define varfable
-            var dataTwo = []
-            var dict =  {}
-            var keys = []
+            // Get navigation category
+            var queryStr = 'Select A, B, C, D';
+            var query = encodeURIComponent(queryStr);
+            var APIurl_3 = APIurl + 'NavTopic' + '&tq=' + query; 
+            fetch (APIurl_3).then(res=>res.text()).then(rep=>{
+                const datasetThree = JSON.parse(rep.substr(47).slice(0,-2));
+                var dataThree = HandleAPI(datasetThree)
 
-            // Get datasetTwo cols and rows
-            var cols = datasetTwo.table.cols
-            var rows = datasetTwo.table.rows
-            // Create list key for dict
-            for (var i = 0; i < Object.keys(cols).length; i++) {
-                keys.push(cols[i].label)
-            }
-
-            // Create list value for dict
-            for (var i = 0; i < Object.keys(rows).length; i++) {
-                // console.log(rows[i].c)
-                var value = {};
-                var el = rows[i].c;
-                for (var j = 0; j < Object.keys(keys).length; j++) {
-                    // console.log(keys[j])
-                    var lengthEl = Object.keys(el[i]).length;
-                    if (el[j] != null) {
-                        value[keys[j]] = el[j].v;
-                        // console.log(el[j].v)
-                    } else {
-                        value[keys[j]] = null;
-                        // console.log('Null')
-                        // console.log(el[j].v)
-                    }
-                    // value[keys[j]] = el[j];
-                }
-                // console.log(value)
-                dataTwo.push(value)
-            }
-            // console.log(dataTwo)
-
-            var test = post[0].concat(nav, post[1], footer, post[2])
-            CallUI(test, dataOne, dataTwo)
+                var test = post[0].concat(nav, post[1], footer, post[2])
+                CallUI(test, dataOne, dataTwo, dataThree)
+            })
         })
     })
 
@@ -102,9 +41,9 @@ try {
     window.location.href = url
 }
 
-async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostData /*API*/) {
-    // console.log(RelatedPost);
-    // console.log(PostData);
+
+
+async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostData /*API*/, Category /*Category for navigation bar*/) {
     var app;
     app = new Vue({
         el: "#app",
@@ -112,7 +51,7 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
         data: {
             // numPage: 1,
             // listBlogs: PageListBlogs,
-            Category: category,
+            Category: Category,
             // title: topic,
             news: RelatedPost,
             post: PostData
