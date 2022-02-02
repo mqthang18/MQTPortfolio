@@ -14,54 +14,54 @@ try {
     fetch(APIurl_1).then(res=>res.text()).then(rep=>{
         // console.log(rep)
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
-    
-            // Define varfable
-            var dataOne = []
-            var dict =  {}
-            var keys = []
-    
-            // Get datasetOne cols and rows
-            var cols = datasetOne.table.cols
-            var rows = datasetOne.table.rows
-            // Create list key for dict
-            for (var i = 0; i < Object.keys(cols).length; i++) {
-                keys.push(cols[i].label)
-            }
-    
-            // Create list value for dict
-            for (var i = 0; i < Object.keys(rows).length; i++) {
-                // console.log(rows[i].c)
-                var value = {};
-                var el = rows[i].c;
-                for (var j = 0; j < Object.keys(keys).length; j++) {
-                    // console.log(keys[j])
-                    var lengthEl = Object.keys(el[i]).length;
-                    if (el[j] != null) {
-                        value[keys[j]] = el[j].v;
-                        // console.log(el[j].v)
-                    } else {
-                        value[keys[j]] = null;
-                        // console.log('Null')
-                        // console.log(el[j].v)
-                    }
-                    // value[keys[j]] = el[j];
+
+        // Define varfable
+        var dataOne = []
+        var dict =  {}
+        var keys = []
+
+        // Get datasetOne cols and rows
+        var cols = datasetOne.table.cols
+        var rows = datasetOne.table.rows
+        // Create list key for dict
+        for (var i = 0; i < Object.keys(cols).length; i++) {
+            keys.push(cols[i].label)
+        }
+
+        // Create list value for dict
+        for (var i = 0; i < Object.keys(rows).length; i++) {
+            // console.log(rows[i].c)
+            var value = {};
+            var el = rows[i].c;
+            for (var j = 0; j < Object.keys(keys).length; j++) {
+                // console.log(keys[j])
+                var lengthEl = Object.keys(el[i]).length;
+                if (el[j] != null) {
+                    value[keys[j]] = el[j].v;
+                    // console.log(el[j].v)
+                } else {
+                    value[keys[j]] = null;
+                    // console.log('Null')
+                    // console.log(el[j].v)
                 }
-                // console.log(value)
-                dataOne.push(value)
+                // value[keys[j]] = el[j];
             }
-        // Get data two
+            // console.log(value)
+            dataOne.push(value)
+        }
+        // Get data two ============================================
         var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where A = '+id;
         var query = encodeURIComponent(queryStr);
         APIurl_2 = APIurl + '&tq=' + query; 
         fetch (APIurl_2).then(res=>res.text()).then(rep=>{
             // console.log(rep)
             const datasetTwo = JSON.parse(rep.substr(47).slice(0,-2));
-    
+
             // Define varfable
             var dataTwo = []
             var dict =  {}
             var keys = []
-    
+
             // Get datasetTwo cols and rows
             var cols = datasetTwo.table.cols
             var rows = datasetTwo.table.rows
@@ -69,7 +69,7 @@ try {
             for (var i = 0; i < Object.keys(cols).length; i++) {
                 keys.push(cols[i].label)
             }
-    
+
             // Create list value for dict
             for (var i = 0; i < Object.keys(rows).length; i++) {
                 // console.log(rows[i].c)
@@ -92,12 +92,12 @@ try {
                 dataTwo.push(value)
             }
             // console.log(dataTwo)
-    
+
             var test = post[0].concat(nav, post[1], footer, post[2])
             CallUI(test, dataOne, dataTwo)
         })
     })
-    
+
 } catch (err) {
     window.location.href = url
 }
@@ -118,6 +118,17 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
             post: PostData
         },
         methods: {
+            redirect: function(IDPost) {
+                var url = window.location.href;
+                url = new URL(url);
+                var search_params = url.searchParams;
+                search_params.set('topic', 'post')
+                search_params.set('id',IDPost)
+                url.search = search_params.toString();
+                var new_url = url.toString()
+                // console.log(new_url)
+                window.location.href = new_url
+            }
         },
         computed: {
             ShowCategory: function() {

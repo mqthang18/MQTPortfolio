@@ -100,12 +100,15 @@
 /* News */
 .body > .bodyContent > .News {
     width: var(--News-width);
-    background-color: var(--Background-color);
+    /* background-color: var(--Background-color); */
     /* border-radius: 1rem; */
     height: fit-content;
+    border: var(--Background-color) solid;
     max-height: 64rem;
 }
-
+.body > .bodyContent > .News > h3 {
+    background-color: var(--Background-color);
+}
 /* .body > .bodyContent > .News > p {
     width: 100%;
 } */
@@ -114,13 +117,20 @@
     padding: 1.2rem 0rem 1.2rem 0rem;
 }
 
-.NewBlog > .BlogElement {
+.News > .NewBlog > .BlogElement {
     width: 90%;
     margin: auto;
     background-color: var(--font-color);
     padding: 1rem 2% 1rem 2%;
     text-align: justify;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     /* border-radius: 1rem; */
+}
+
+.News > .NewBlog > .BlogElement:hover {
+    transition: 0.2s;
+    box-shadow: 0 14px 18px 0 rgba(0,0,0,0.2);
 }
 
 /* .NewBlog > .BlogElement > .item {
