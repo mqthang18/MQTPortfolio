@@ -23,6 +23,7 @@
     background-color: var(--Background-color);
     width: 100%;
     padding: 1rem 0 1rem 1rem;
+    height: max-content;
 }
 
 .body > .LiPostHead > span {
