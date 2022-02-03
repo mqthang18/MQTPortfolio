@@ -33,44 +33,24 @@
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/database/Category/Category.vue.js'],}
+                    2: ['src', './src/views/blocks/footer.vue.js'],}
                 ],
                 5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/blocks/footer.vue.js'],}
-                ],
-                6: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
                     2: ['src', './public/js/homepage/homepage.js'],
                 }],
-                7: ['body', 'script', {
+                6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', topic],
                     2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
-                8: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
-                    2: ['src', './src/views/pages/subject/News/news.js']
-                }],
-                // 9: ['body', 'script', {
-                //     0: ['name', 'homepage'],
-                //     1: ['id', 'homepage'],
-                //     2: ['src', './src/views/pages/'.concat(topic,'/EL/data.js')],
-                // }],
-                // 10: ['body', 'script', {
-                //     0: ['name', 'homepage'],
-                //     1: ['id', 'homepage'],
-                //     2: ['src', './src/views/pages/'.concat(topic,'/IT/data.js')],
-                // }],
-                9: ['body', 'script', {
+                7: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/subject/content.vue.js'],
                 }],
-                10: ['body', 'script', {
+                8: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/models/subject.js'],
@@ -158,29 +138,24 @@
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/database/Category/Category.vue.js'],}
+                    2: ['src', './src/views/blocks/footer.vue.js'],}
                 ],
                 5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/blocks/footer.vue.js'],}
-                ],
-                6: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
                     2: ['src', './public/js/homepage/homepage.js'],
                 }],
-                7: ['body', 'script', {
+                6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', topic],
                     2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
-                8: ['body', 'script', {
+                7: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/me/content.vue.js'],
                 }],
-                9: ['body', 'script', {
+                8: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/models/me.js'],
@@ -221,29 +196,24 @@
                 4: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/database/Category/Category.vue.js'],}
+                    2: ['src', './src/views/blocks/footer.vue.js'],}
                 ],
                 5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/views/blocks/footer.vue.js'],}
-                ],
-                6: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
                     2: ['src', './public/js/homepage/homepage.js'],
                 }],
-                7: ['body', 'script', {
+                6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', topic],
                     2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
-                8: ['body', 'script', {
+                7: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/post/content.vue.js'],
                 }],
-                9: ['body', 'script', {
+                8: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/models/post.js'],
@@ -254,7 +224,7 @@
                 CreateTag(listElement[i][0], listElement[i][1], listElement[i][2])
             }
         }
-
+// Insert tag to render HTML 
         function CreateTag(HtmlPart, Tag, Attr) {
             var tag = document.createElement(Tag);
             for (var i = 0; i < Object.keys(Attr).length; i++) {
@@ -269,7 +239,7 @@
                     break;
             }
         }
-
+// Handle API data is queried 
         function HandleAPI(dataset) {
             // Define variable
             var data = []

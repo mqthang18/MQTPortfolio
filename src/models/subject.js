@@ -3,11 +3,11 @@ try {
     // console.log(topic.split('/'))
     let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
     var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
-    console.log(queryStr)
+    // console.log(queryStr)
     var query = encodeURIComponent(queryStr);
-    console.log(query);
+    // console.log(query);
     APIurl_1 = APIurl + 'Post' + '&tq=' + query; 
-    console.log(APIurl);
+    // console.log(APIurl);
     fetch (APIurl_1).then(res => res.text()).then(rep=>{
         // console.log(rep)
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
