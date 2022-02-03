@@ -1,15 +1,11 @@
 try {
     "use strict";
-    // console.log(topic.split('/'))
     var id = url.searchParams.get("id");
-    // console.log(id)
     let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
     var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
-    // console.log(queryStr)
     var query = encodeURIComponent(queryStr);
-    // console.log(query);
     APIurl_1 = APIurl + 'Post' + '&tq=' + query; 
-    // console.log(APIurl);
+
     // Get data one ==========================================
     fetch(APIurl_1).then(res=>res.text()).then(rep=>{
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
@@ -49,10 +45,7 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
         el: "#app",
         template: VueTemplate,
         data: {
-            // numPage: 1,
-            // listBlogs: PageListBlogs,
             Category: Category,
-            // title: topic,
             news: RelatedPost,
             post: PostData
         },
@@ -65,7 +58,6 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
                 search_params.set('id',IDPost)
                 url.search = search_params.toString();
                 var new_url = url.toString()
-                // console.log(new_url)
                 window.location.href = new_url
             }
         },

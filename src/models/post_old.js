@@ -1,21 +1,15 @@
 try {
     "use strict";
-    // console.log(topic.split('/'))
     var id = url.searchParams.get("id");
-    // console.log(id)
     let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=Post";
     var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
-    // console.log(queryStr)
     var query = encodeURIComponent(queryStr);
-    // console.log(query);
     APIurl_1 = APIurl + '&tq=' + query; 
-    // console.log(APIurl);
 
     fetch(APIurl_1).then(res=>res.text()).then(rep=>{
-        // console.log(rep)
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
 
-        // Define varfable
+        // Define variable
         var dataOne = []
         var dict =  {}
         var keys = []
@@ -30,23 +24,16 @@ try {
 
         // Create list value for dict
         for (var i = 0; i < Object.keys(rows).length; i++) {
-            // console.log(rows[i].c)
             var value = {};
             var el = rows[i].c;
             for (var j = 0; j < Object.keys(keys).length; j++) {
-                // console.log(keys[j])
                 var lengthEl = Object.keys(el[i]).length;
                 if (el[j] != null) {
                     value[keys[j]] = el[j].v;
-                    // console.log(el[j].v)
                 } else {
                     value[keys[j]] = null;
-                    // console.log('Null')
-                    // console.log(el[j].v)
                 }
-                // value[keys[j]] = el[j];
             }
-            // console.log(value)
             dataOne.push(value)
         }
         // Get data two ============================================
@@ -54,7 +41,6 @@ try {
         var query = encodeURIComponent(queryStr);
         APIurl_2 = APIurl + '&tq=' + query; 
         fetch (APIurl_2).then(res=>res.text()).then(rep=>{
-            // console.log(rep)
             const datasetTwo = JSON.parse(rep.substr(47).slice(0,-2));
 
             // Define varfable
@@ -72,26 +58,18 @@ try {
 
             // Create list value for dict
             for (var i = 0; i < Object.keys(rows).length; i++) {
-                // console.log(rows[i].c)
                 var value = {};
                 var el = rows[i].c;
                 for (var j = 0; j < Object.keys(keys).length; j++) {
-                    // console.log(keys[j])
                     var lengthEl = Object.keys(el[i]).length;
                     if (el[j] != null) {
                         value[keys[j]] = el[j].v;
-                        // console.log(el[j].v)
                     } else {
                         value[keys[j]] = null;
-                        // console.log('Null')
-                        // console.log(el[j].v)
                     }
-                    // value[keys[j]] = el[j];
                 }
-                // console.log(value)
                 dataTwo.push(value)
             }
-            // console.log(dataTwo)
 
             var test = post[0].concat(nav, post[1], footer, post[2])
             CallUI(test, dataOne, dataTwo)
@@ -103,17 +81,12 @@ try {
 }
 
 async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostData /*API*/) {
-    // console.log(RelatedPost);
-    // console.log(PostData);
     var app;
     app = new Vue({
         el: "#app",
         template: VueTemplate,
         data: {
-            // numPage: 1,
-            // listBlogs: PageListBlogs,
             Category: category,
-            // title: topic,
             news: RelatedPost,
             post: PostData
         },
@@ -126,7 +99,6 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
                 search_params.set('id',IDPost)
                 url.search = search_params.toString();
                 var new_url = url.toString()
-                // console.log(new_url)
                 window.location.href = new_url
             }
         },

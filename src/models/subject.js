@@ -1,15 +1,10 @@
 try {
     "use strict";
-    // console.log(topic.split('/'))
     let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
     var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
-    // console.log(queryStr)
     var query = encodeURIComponent(queryStr);
-    // console.log(query);
     APIurl_1 = APIurl + 'Post' + '&tq=' + query; 
-    // console.log(APIurl);
     fetch (APIurl_1).then(res => res.text()).then(rep=>{
-        // console.log(rep)
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
 
         // Define varfable
@@ -32,7 +27,7 @@ try {
             fetch(APIurl_3).then(res=>res.text()).then(rep=>{
                 const datasetThree = JSON.parse(rep.substr(47).slice(0,-2));
                 var dataThree = HandleAPI(datasetThree)
-                CallUI(subject /*Vue template*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataThree /*Category for navigation bar*/)
+                CallUI(subject /*Vue template*/, topic /*Title*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataThree /*Category for navigation bar*/)
             })
             
         })
@@ -44,9 +39,9 @@ try {
 }
 
 
-async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/, Category /*Category for navigation bar*/) {
+async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, ListNews /*API*/, Category /*Category for navigation bar*/) {
     "use strict";
-    // console.log(data)
+
     var listBlog; 
     subject = subject[0].concat(nav, subject[1], subject[2], footer, subject[3])
     var test = subject
@@ -71,7 +66,7 @@ async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/, 
     for (var i = 0; i < OrderPage.length; i++) {
         PageListBlogs[OrderPage[i]] = List[i]
     }
-    // console.log(PageListBlogs)
+
     var app;
     app = new Vue({
         el: "#app",
@@ -92,7 +87,6 @@ async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/, 
                 search_params.set('id',IDPost)
                 url.search = search_params.toString();
                 var new_url = url.toString()
-                // console.log(new_url)
                 window.location.href = new_url
             }
         },
@@ -100,8 +94,10 @@ async function CallUI(subject /*Vue template*/, data /*API*/, ListNews /*API*/, 
             ShowCategory: function() {
                 var target; 
                 for (var i = 0; i < this.Category.length; i++) {
-                    if (this.Category[i].path == this.title) {
+                    var path = this.Category[i].topic + '/' + this.Category[i].path;
+                    if (this.title == path) {
                         target = this.Category[i].category;
+                        break;
                     }
                 }
                 return target; 
