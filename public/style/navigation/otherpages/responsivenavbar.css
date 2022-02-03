@@ -29,13 +29,13 @@
     :root {
         --w-logo-col: 100%;
     }
-    a {font-size: 1rem;}
     .navigation-bar {
         padding: 0;
         width: 100%;
         min-height: 5rem;
         position: unset;
     }
+    .navigation-bar a {font-size: 1rem;}
     .navigation-bar, .parent-menu {
         flex-direction: column;
     }
@@ -72,13 +72,6 @@
         padding-top: 1rem;
     }
 
-    /* .logo > img {
-        width: 4rem;
-        height: 4rem;
-        margin-top: 0rem;
-        padding-bottom: 0rem;
-        padding-left: 0.5rem;
-    } */
     .icon {
         display: block;
     }

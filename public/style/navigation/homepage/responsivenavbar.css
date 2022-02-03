@@ -3,13 +3,13 @@
         --w-logo-col: 100%;
     }
 
-    a {font-size: 1rem;}
-    
     .navigation-bar {
         padding: 0;
         width: 100%;
     }
 
+    .navigation-bar a {font-size: 1rem;}
+    
     .navigation-bar, .parent-menu {
         flex-direction: column;
     }

@@ -59,7 +59,15 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
                 url.search = search_params.toString();
                 var new_url = url.toString()
                 window.location.href = new_url
-            }
+            },
+            scrollToBottom: function(e,id) {
+                // Ý tưởng get id của el sau đó lấy vị trí của el đó => sử dụng scrollTo để di chuyển tới el  
+                console.log(id)
+                e.preventDefault();
+                var element = document.getElementById(id);
+                var y = element.offsetTop; 
+                window.scrollTo({top: y, behavior: 'smooth'});
+              }
         },
         computed: {
             ShowCategory: function() {

@@ -80,24 +80,19 @@
                 3: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
-                    2: ['src', './src/database/Category/Category.vue.js'],}
-                ], 
-                4: ['body', 'script', {
-                    0: ['name', 'homepage'],
-                    1: ['id', 'homepage'],
                     2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
-                5: ['body', 'script', {
+                4: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/homepage/homepage.vue.js'],
                 }],
-                6: ['body', 'script', {
+                5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './public/js/homepage/homepage.js'],
                 }],
-                7: ['body', 'script', {
+                6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/models/homepage.js'],
@@ -193,27 +188,32 @@
                     1: ['name', topic],
                     2: ['href', './public/style/subject/content.css']
                 }],
-                4: ['body', 'script', {
+                4: ['head', 'link', {
+                    0: ['rel', "stylesheet"],
+                    1: ['name', topic],
+                    2: ['href', './public/style/post/content.css']
+                }],
+                5: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/blocks/footer.vue.js'],}
                 ],
-                5: ['body', 'script', {
+                6: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './public/js/homepage/homepage.js'],
                 }],
-                6: ['body', 'script', {
+                7: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', topic],
                     2: ['src', './src/views/blocks/navigationbar.vue.js'],
                 }],
-                7: ['body', 'script', {
+                8: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/views/pages/post/content.vue.js'],
                 }],
-                8: ['body', 'script', {
+                9: ['body', 'script', {
                     0: ['name', 'homepage'],
                     1: ['id', 'homepage'],
                     2: ['src', './src/models/post.js'],

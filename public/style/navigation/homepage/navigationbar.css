@@ -29,7 +29,7 @@
 
 .parent-menu .child-menu > a {text-align: center;}
 
-a {
+.navigation-bar a {
     text-decoration: none;
     color:  white;
     font-size: 1.5rem;
@@ -60,7 +60,7 @@ a {
     position: relative;
 }
 
-a:hover {
+.navigation-bar a:hover {
     transition: 0.3s;
     background-color: rgba(0, 0, 255, 0.349);
     /* text-underline-position: under; */
