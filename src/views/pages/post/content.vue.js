@@ -7,8 +7,9 @@ var post = [
                 <span> {{ post[0].title }} </span>
             </div>
             <div class="bodyContent">
-                <div id="Content" class="Content" v-html="post[0].content">
-                </div>               
+                <div id="Content" class="Content">`,
+
+                `</div>               
                 <div class="News">
                     <h3 style="color:white; text-align: center;">Related Posts</h3>
                     <div v-for="n in news" class="NewBlog">
