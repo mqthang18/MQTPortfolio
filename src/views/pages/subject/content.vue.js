@@ -10,9 +10,12 @@ var subject = [
                 <div id="Content" class="Content">
                     <div v-for="post in listBlogs[numPage]" class="Posts">
                         <div style="text-align:unset;" v-on:click="redirect(post.id)">
-                            <h3> {{ post.title }} </h1>
-                            <p> {{ post.datecreate }} </p>
-                            <p> {{ post.author }} </p>
+                            <div class="head">
+                                <h3> {{ post.title }} </h1>
+                                <p> {{ post.datecreate }} </p>
+                                <p> {{ post.author }} </p>
+                            </div>
+                            
                         </div>
                     </div> 
                 </div>               
