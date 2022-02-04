@@ -8,7 +8,10 @@ var subject = [
             </div>
             <div class="bodyContent">
                 <div id="Content" class="Content">
-                    <div v-for="post in listBlogs[numPage]" class="Posts">
+                    <div v-if="Object.keys(listBlogs).length === 0">
+                        <p>Mục này hiện không có nội dung</p>
+                    </div>
+                    <div v-for="post in listBlogs[numPage]" class="Posts" v-else="Object.keys(listBlogs).length !== 0">
                         <div style="text-align:unset;" v-on:click="redirect(post.id)">
                             <div class="head">
                                 <h3> {{ post.title }} </h1>

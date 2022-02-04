@@ -94,7 +94,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             },
             ChangeDisplayRelatedPost: function() {
                 var lengthListNewsPost = Object.keys(this.news[0]).length; 
-                console.log(lengthListNewsPost)
+                // console.log(lengthListNewsPost)
                 if (lengthListNewsPost > 1) {
                     this.styleNews.display = 'block';
                 }
@@ -114,6 +114,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             }
         }
     })
+
     app.ChangeDisplayRelatedPost();
     var numPage = Object.keys(app.listBlogs).length; // Xac dinh numPage de han che listBlogs data
     if (numPage > 1) {
