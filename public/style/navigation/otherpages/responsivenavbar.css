@@ -32,7 +32,7 @@
     .navigation-bar {
         padding: 0;
         width: 100%;
-        min-height: 5rem;
+        min-height: 6rem;
         position: unset;
     }
     .navigation-bar a {font-size: 1rem;}
@@ -44,6 +44,7 @@
         opacity: 0;
     }
     .parent-menu {
+        padding-top: 5.4rem;
         left: 0;
         right: 0;
         bottom: unset;
@@ -78,6 +79,7 @@
     .icon a {
         position: absolute;
         right: 0;
-        padding: 1.8rem;
+        padding: 1.6rem;
+        font-size: 2rem;
       }
     }
