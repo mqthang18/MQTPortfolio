@@ -40,6 +40,9 @@ try {
 
 
 async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostData /*API*/, Category /*Category for navigation bar*/) {
+    if (RelatedPost.length >= 5) {
+        RelatedPost = RelatedPost.splice(0,5)
+    }
     var app;
     app = new Vue({
         el: "#app",
@@ -47,7 +50,10 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
         data: {
             Category: Category,
             news: RelatedPost,
-            post: PostData
+            post: PostData,
+            styleNews: {
+                display: 'none'
+            }
         },
         methods: {
             scrollToBottom: function(e,id) {
@@ -67,6 +73,12 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
                 url.search = search_params.toString();
                 var new_url = url.toString()
                 window.location.href = new_url
+            },
+            ChangeDisplayRelatedPost: function() {
+                var lengthListNewsPost = Object.keys(this.news[0]).length; 
+                if (lengthListNewsPost > 1) {
+                    this.styleNews.display = 'block';
+                }
             }
         },
         computed: {
@@ -81,6 +93,5 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
             }
         }
     })
+    app.ChangeDisplayRelatedPost();
 }
-
-

@@ -14,13 +14,12 @@ var subject = [
                                 <h3> {{ post.title }} </h1>
                                 <p> {{ post.datecreate }} </p>
                                 <p> {{ post.author }} </p>
-                            </div>
-                            
+                            </div>    
                         </div>
                     </div> 
                 </div>               
-                <div class="News">
-                    <h3 style="color:white; text-align: center;">Related Posts</h3>
+                <div class="News" v-bind:style="styleNews">
+                    <h3 style="color:white; text-align:center;">Related Posts</h3>
                     <div v-for="n in news" class="NewBlog">
                         <div class="BlogElement">
                             <div class="item">

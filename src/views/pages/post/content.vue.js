@@ -10,7 +10,7 @@ var post = [
                 <div id="Content" class="Content">`,
 
                 `</div>               
-                <div class="News">
+                <div class="News" v-bind:style="styleNews">
                     <h3 style="color:white; text-align: center;">Related Posts</h3>
                     <div v-for="n in news" class="NewBlog">
                         <div class="BlogElement">

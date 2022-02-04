@@ -9,7 +9,7 @@ try {
 
         // Define varfable
         var dataOne = HandleAPI(datasetOne)
-        
+
         // Get data two ============================================
         var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where C = "'+topic.split('/')[1]+'"';
         var query = encodeURIComponent(queryStr);
@@ -76,7 +76,10 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             listBlogs: PageListBlogs,
             Category: Category,
             title: topic,
-            news: ListNews
+            news: ListNews,
+            styleNews: {
+                display: 'none'
+            }
         },
         methods: {
             redirect: function(IDPost) {
@@ -88,6 +91,13 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                 url.search = search_params.toString();
                 var new_url = url.toString()
                 window.location.href = new_url
+            },
+            ChangeDisplayRelatedPost: function() {
+                var lengthListNewsPost = Object.keys(this.news[0]).length; 
+                console.log(lengthListNewsPost)
+                if (lengthListNewsPost > 1) {
+                    this.styleNews.display = 'block';
+                }
             }
         },
         computed: {
@@ -104,7 +114,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             }
         }
     })
-
+    app.ChangeDisplayRelatedPost();
     var numPage = Object.keys(app.listBlogs).length; // Xac dinh numPage de han che listBlogs data
     if (numPage > 1) {
         var ListNumPage = document.getElementById("ListOrderPage");

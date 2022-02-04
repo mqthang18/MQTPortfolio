@@ -57,7 +57,7 @@
     /* min-height: 25rem; */
     height: 25rem;
     margin-top: 10px;
-   
+    padding: 1rem 1rem;
 }
 
 .Posts > div {
@@ -70,7 +70,6 @@
 
 .Posts > div > .head {
     padding: 1rem 1rem;
-    
 }
 
 .Posts > div > .head p {
@@ -112,7 +111,8 @@
     /* background-color: var(--Background-color); */
     /* border-radius: 1rem; */
     height: fit-content;
-    border: var(--Background-color) solid;
+    /* border: var(--Background-color) solid; */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     max-height: 64rem;
 }
 .body > .bodyContent > .News > h3 {
@@ -133,13 +133,13 @@
     padding: 1rem 2% 1rem 2%;
     text-align: justify;
     cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
     /* border-radius: 1rem; */
 }
 
 .News > .NewBlog > .BlogElement:hover {
     transition: 0.2s;
-    box-shadow: 0 14px 18px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
 }
 
 /* .NewBlog > .BlogElement > .item {
@@ -155,7 +155,7 @@
 
 @media screen and (max-width: 760px) {
     .body {
-        width: 100%;
+        width: 100vw;
         /* position: relative; */
     }
 
@@ -174,6 +174,7 @@
 
     .body > .bodyContent > .News {
         width: 100%;
+        /* border: none; */
     }
     
     .OrderPage {
