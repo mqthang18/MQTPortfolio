@@ -242,16 +242,16 @@
 // Handle API data is queried 
         function HandleAPI(dataset) {
             // Define variable
-            var data = []
-            var dict =  {}
-            var keys = []
-        
+            var data = [];
+            var dict =  {};
+            var keys = [];
+            console.log(dataset);
             // Get datasetOne cols and rows
-            var cols = dataset.table.cols
-            var rows = dataset.table.rows
+            var cols = dataset.table.cols;
+            var rows = dataset.table.rows;
             // Create list key for dict
             for (var i = 0; i < Object.keys(cols).length; i++) {
-                keys.push(cols[i].label)
+                keys.push(cols[i].label);
             }
         
             // Create list value for dict
@@ -259,7 +259,6 @@
                 var value = {};
                 var el = rows[i].c;
                 for (var j = 0; j < Object.keys(keys).length; j++) {
-                    var lengthEl = Object.keys(el[i]).length;
                     if (el[j] != null) {
                         value[keys[j]] = el[j].v;
                     } else {
@@ -268,5 +267,5 @@
                 }
                 data.push(value);
             }
-            return data
+            return data;
         }
