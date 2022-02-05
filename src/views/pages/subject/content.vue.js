@@ -40,9 +40,10 @@ var subject = [
             </div>
         </div>
         `,
-        `<div class="OrderPage">
+        `<div class="OrderPage" v-if="totalNum.length > 1">
             <div>
                 <div id="ListOrderPage" class="ListOrderPage">
+                    <button v-for="item in totalNum" v-on:click="ChangeNumPage(item)"> {{ item }} </button>
                 </div>
             </div>
         </div>`,

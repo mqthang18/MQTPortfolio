@@ -16,7 +16,6 @@ try {
         APIurl_2 = APIurl + 'Post' + '&tq=' + query; 
         fetch(APIurl_2).then(res => res.text()).then(rep=>{
             const datasetTwo = JSON.parse(rep.substr(47).slice(0,-2));
-            // console.log(datasetTwo.table.rows);
             // Define varfable
             var dataTwo = HandleAPI(datasetTwo)
             
@@ -51,7 +50,9 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
     var getNumPage = Math.ceil(data.length/12)
     
     if (ListNews.length >= 5) {
-        ListNews = ListNews.splice(0,5)
+        var endPos = ListNews.length;
+        var beginPos = endPos - 5; 
+        ListNews = ListNews.splice(beginPos,endPos)
     }
 
     for (var i = 0; i < getNumPage; i++) {
@@ -73,6 +74,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
         template: subject,
         data: {
             numPage: 1,
+            totalNum: Object.keys(PageListBlogs),
             listBlogs: PageListBlogs,
             Category: Category,
             title: topic,
@@ -87,7 +89,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                 url = new URL(url);
                 var search_params = url.searchParams;
                 search_params.set('topic', 'post')
-                search_params.set('id',IDPost)
+                search_params.set('id', IDPost)
                 url.search = search_params.toString();
                 var new_url = url.toString()
                 window.location.href = new_url
@@ -98,7 +100,12 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                 if (lengthListNewsPost > 1) {
                     this.styleNews.display = 'block';
                 }
-            }
+            },
+            ChangeNumPage: function(param) {
+                this.numPage = param;
+                console.log(param)
+                return this.numPage
+            }  
         },
         computed: {
             ShowCategory: function() {
@@ -116,13 +123,4 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
     })
 
     app.ChangeDisplayRelatedPost();
-    var numPage = Object.keys(app.listBlogs).length; // Xac dinh numPage de han che listBlogs data
-    if (numPage > 1) {
-        var ListNumPage = document.getElementById("ListOrderPage");
-        for (var i = 0; i < numPage; i++) {
-            var Numtag = document.createElement('button'); 
-            Numtag.setAttribute('onclick','app.numPage ='.concat(i+1));
-            ListNumPage.appendChild(Numtag).innerText = i + 1;
-        }
-    }
 }

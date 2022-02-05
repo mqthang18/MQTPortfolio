@@ -96,7 +96,7 @@ try {
         var ListNumPage = document.getElementById("ListOrderPage");
         for (var i = 0; i < numPage; i++) {
             var Numtag = document.createElement('button'); 
-            Numtag.setAttribute('onclick','app.numPage ='.concat(i+1));
+            Numtag.setAttribute('onclick','app.numPage = '.concat(i+1));
             ListNumPage.appendChild(Numtag).innerText = i + 1;
         }
     }
