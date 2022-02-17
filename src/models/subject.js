@@ -92,7 +92,12 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                 window.location.href = new_url
             },
             ChangeDisplayRelatedPost: function() {
-                var lengthListNewsPost = Object.keys(this.news[0]).length; 
+                var lengthListNewsPost;
+                if (Object.keys(this.news).length==0) {
+                    lengthListNewsPost = 0; 
+                } else {
+                    lengthListNewsPost = Object.keys(this.news[0]).length; 
+                }
                 // console.log(lengthListNewsPost)
                 if (lengthListNewsPost > 1) {
                     this.styleNews.display = 'block';
