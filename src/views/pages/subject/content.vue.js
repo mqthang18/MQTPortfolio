@@ -22,7 +22,7 @@ var subject = [
                     </div> 
                 </div>               
                 <div class="News" v-bind:style="styleNews">
-                    <h3 style="color:white; text-align:center;">Related Posts</h3>
+                    <h3 style="color:white; text-align:center;">New Posts</h3>
                     <div v-for="n in news" class="NewBlog">
                         <div class="BlogElement">
                             <div class="item">
