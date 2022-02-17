@@ -1,14 +1,14 @@
 try {
     "use strict";
     let APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
-    var queryStr = 'Select A, B, C, D, E, F, G, H, I, J'
+    var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where C = "'+topic.split('/')[1]+'"';
     var query = encodeURIComponent(queryStr);
     APIurl_1 = APIurl + 'Post' + '&tq=' + query; 
     fetch (APIurl_1).then(res => res.text()).then(rep=>{
         const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
 
         // Define varfable
-        var dataOne = HandleAPI(datasetOne)
+        var dataOne = HandleAPI(datasetOne);
 
         // Get data two ============================================
         var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where C = "'+topic.split('/')[1]+'"';
@@ -17,7 +17,7 @@ try {
         fetch(APIurl_2).then(res => res.text()).then(rep=>{
             const datasetTwo = JSON.parse(rep.substr(47).slice(0,-2));
             // Define varfable
-            var dataTwo = HandleAPI(datasetTwo)
+            var dataTwo = HandleAPI(datasetTwo);
             
             // Get navigation category
             var queryStr = 'Select A, B, C, D';
@@ -25,16 +25,13 @@ try {
             var APIurl_3 = APIurl + 'NavTopic' + '&tq=' + query; 
             fetch(APIurl_3).then(res=>res.text()).then(rep=>{
                 const datasetThree = JSON.parse(rep.substr(47).slice(0,-2));
-                var dataThree = HandleAPI(datasetThree)
-                CallUI(subject /*Vue template*/, topic /*Title*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataThree /*Category for navigation bar*/)
-            })
-            
-        })
-        
+                var dataThree = HandleAPI(datasetThree);
+                CallUI(subject /*Vue template*/, topic /*Title*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataThree /*Category for navigation bar*/);
+            })    
+        })    
     })
-
 } catch (err) {
-    window.location.href = url
+    window.location.href = url;
 }
 
 
@@ -42,17 +39,17 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
     "use strict";
 
     var listBlog; 
-    subject = subject[0].concat(nav, subject[1], subject[2], footer, subject[3])
-    var test = subject
-    let PageListBlogs = {} 
-    var OrderPage = []
-    var List = []
-    var getNumPage = Math.ceil(data.length/12)
+    subject = subject[0].concat(nav, subject[1], subject[2], footer, subject[3]);
+    var test = subject;
+    let PageListBlogs = {};
+    var OrderPage = [];
+    var List = [];
+    var getNumPage = Math.ceil(data.length/12);
     
     if (ListNews.length >= 5) {
         var endPos = ListNews.length;
         var beginPos = endPos - 5; 
-        ListNews = ListNews.splice(beginPos,endPos)
+        ListNews = ListNews.splice(beginPos,endPos);
     }
 
     for (var i = 0; i < getNumPage; i++) {
@@ -65,7 +62,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
     }
  
     for (var i = 0; i < OrderPage.length; i++) {
-        PageListBlogs[OrderPage[i]] = List[i]
+        PageListBlogs[OrderPage[i]] = List[i];
     }
 
     var app;
@@ -121,6 +118,5 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             }
         }
     })
-
     app.ChangeDisplayRelatedPost();
 }
