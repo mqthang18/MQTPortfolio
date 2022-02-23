@@ -115,7 +115,7 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                 for (var i = 0; i < this.Category.length; i++) {
                     var path = this.Category[i].topic + '/' + this.Category[i].path;
                     if (this.title == path) {
-                        target = this.Category[i].category;
+                        target = this.Category[i].topicName;
                         break;
                     }
                 }

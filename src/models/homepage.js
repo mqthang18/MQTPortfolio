@@ -11,7 +11,6 @@ try {
         CallUI(test, dataThree)
     })
 } catch (err) {
-    // console.log(err)
     window.location.href = url;
 }
 

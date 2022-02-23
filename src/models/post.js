@@ -32,7 +32,6 @@ try {
             })
         })
     })
-
 } catch (err) {
     window.location.href = url
 }
@@ -95,3 +94,4 @@ async function CallUI(VueTemplate /*Vue template*/, RelatedPost /*API*/, PostDat
     })
     app.ChangeDisplayRelatedPost();
 }
+
