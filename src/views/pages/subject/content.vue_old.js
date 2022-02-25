@@ -20,36 +20,21 @@ var subject = [
                             </div>    
                         </div>
                     </div> 
-                </div>
-                <div class="rightCol">               
-                    <div class="News" v-bind:style="styleNews">
-                        <h3 style="color:white; text-align:center;">New Posts</h3>
-                        <div v-for="n in news" class="NewBlog">
-                            <div class="BlogElement">
-                                <div class="item">
-                                    <div class="itemMessage" style="text-align:unset;" v-on:click="redirect(n.id, 'post')">
-                                        <h3> {{ n.title }} </h3>
-                                        <div class="BlogNote">
-                                            <p> {{ n.category }} </p>
-                                            <p> {{ n.dateCreated }}</p>
-                                        </div>
+                </div>               
+                <div class="News" v-bind:style="styleNews">
+                    <h3 style="color:white; text-align:center;">New Posts</h3>
+                    <div v-for="n in news" class="NewBlog">
+                        <div class="BlogElement">
+                            <div class="item">
+                                <div class="itemMessage" style="text-align:unset;" v-on:click="redirect(n.id)">
+                                    <h3> {{ n.title }} </h3>
+                                    <div class="BlogNote">
+                                        <p> {{ n.category }} </p>
+                                        <p> {{ n.dateCreated }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="SubT" v-bind:style="styleSubTopic">
-                        <h3 style="color: white; text-align: center;">SubTopic</h3>
-                        <div v-for="n in subtopic" class="SubTopic">
-                            <div class="SubTopicElement">
-                                <div class="item">
-                                    <div class="itemMessage" style="text-align:unset;"
-                                    v-on:click="redirect(n.abbreviate, 'subject')">
-                                        <h3> {{ n.title }} </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  
                     </div>
                 </div>
             </div>

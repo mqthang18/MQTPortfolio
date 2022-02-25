@@ -11,7 +11,13 @@ try {
         var dataOne = HandleAPI(datasetOne);
 
         // Get data two ============================================
+        console.log(url.searchParams.get("abbreviate"));
+        var abbreviate = url.searchParams.get("abbreviate");
         var queryStr = 'Select A, B, C, D, E, F, G, H, I, J where C = "'+topic.split('/')[1]+'"';
+        if (abbreviate != null) {
+            var queryStr = queryStr+'and D ="'+abbreviate+'"';
+        } 
+        
         var query = encodeURIComponent(queryStr);
         APIurl_2 = APIurl + 'Post' + '&tq=' + query; 
         fetch(APIurl_2).then(res => res.text()).then(rep=>{
@@ -26,7 +32,15 @@ try {
             fetch(APIurl_3).then(res=>res.text()).then(rep=>{
                 const datasetThree = JSON.parse(rep.substr(47).slice(0,-2));
                 var dataThree = HandleAPI(datasetThree);
-                CallUI(subject /*Vue template*/, topic /*Title*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataThree /*Category for navigation bar*/);
+
+                var queryStr = 'Select B, C, D, E where C="'+topic.split('/')[1]+'"';
+                var query = encodeURIComponent(queryStr);
+                var APIurl_4 = APIurl + 'SubTopic' + '&tq=' + query;
+                fetch(APIurl_4).then(res=>res.text()).then(rep=>{
+                    var datasetFour = JSON.parse(rep.substr(47).slice(0,-2));;
+                    var dataFour = HandleAPI(datasetFour);
+                    CallUI(subject /*Vue template*/, topic /*Title*/, dataTwo /*API*/, dataOne /*API ListNews*/, dataFour /*API ListSubTopic*/, dataThree /*Category for navigation bar*/);
+                })
             })    
         })    
     })
@@ -35,9 +49,10 @@ try {
 }
 
 
-async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, ListNews /*API*/, Category /*Category for navigation bar*/) {
+async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, ListNews /*API*/, ListSubTopic /*API*/, Category /*Category for navigation bar*/) {
     "use strict";
-
+    console.log(ListNews);
+    console.log(ListSubTopic);
     var listBlog; 
     subject = subject[0].concat(nav, subject[1], subject[2], footer, subject[3]);
     var test = subject;
@@ -76,17 +91,40 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             Category: Category,
             title: topic,
             news: ListNews,
+            subtopic: ListSubTopic,
             styleNews: {
                 display: 'none'
+            },
+            styleSubTopic: {
+                display: 'None'
             }
         },
         methods: {
-            redirect: function(IDPost) {
+            redirect: function(IDPost, page) {
                 var url = window.location.href;
                 url = new URL(url);
                 var search_params = url.searchParams;
-                search_params.set('topic', 'post')
-                search_params.set('id', IDPost)
+
+                switch (page) {
+                    case 'post':
+                        search_params.set('topic', page);
+                        search_params.set('id', IDPost);
+                        break;
+                    case 'subject':
+                        var el = this.subtopic;
+                        for (var i = 0; i <= el.length; i++) {
+                            if (el[i].abbreviate == IDPost) {
+                                el = el[i];
+                                break;
+                            }
+                        }
+                        // console.log(el)
+                        // console.log(el.topic.concat('/',el.path))
+                        search_params.set('topic', el.topic.concat('/',el.path));
+                        search_params.set('abbreviate', el.abbreviate);
+                        break;
+                }
+                
                 url.search = search_params.toString();
                 var new_url = url.toString()
                 window.location.href = new_url
@@ -103,10 +141,22 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                     this.styleNews.display = 'block';
                 }
             },
+            ChangeDisplaySubTopic: function() {
+                var lengthSubTopic; 
+                if (Object.keys(this.subtopic).length==0) {
+                    lengthSubTopic = 0; 
+                } else {
+                    lengthSubTopic = Object.keys(this.subtopic[0]).length;
+                }
+
+                if (lengthSubTopic > 1) {
+                    this.styleSubTopic.display = 'block'
+                }
+            },
             ChangeNumPage: function(param) {
                 this.numPage = param;
-                console.log(param)
-                return this.numPage
+                console.log(param);
+                return this.numPage;
             }  
         },
         computed: {
@@ -124,4 +174,5 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
         }
     })
     app.ChangeDisplayRelatedPost();
+    app.ChangeDisplaySubTopic();
 }

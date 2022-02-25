@@ -259,7 +259,7 @@ fetch (APIurl).then(res => res.text()).then(rep=>{
             var data = [];
             var dict =  {};
             var keys = [];
-            console.log(dataset);
+            // console.log(dataset);
             // Get datasetOne cols and rows
             var cols = dataset.table.cols;
             var rows = dataset.table.rows;
