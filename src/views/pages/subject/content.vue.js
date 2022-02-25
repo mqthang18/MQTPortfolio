@@ -12,7 +12,7 @@ var subject = [
                         <p>Mục này hiện không có nội dung</p>
                     </div>
                     <div v-for="post in listBlogs[numPage]" class="Posts" v-else="Object.keys(listBlogs).length !== 0">
-                        <div style="text-align:unset;" v-on:click="redirect(post.id)">
+                        <div style="text-align:unset;" v-on:click="redirect(post.id, 'post')">
                             <div class="head">
                                 <h3> {{ post.title }} </h1>
                                 <p> {{ post.datecreate }} </p>
