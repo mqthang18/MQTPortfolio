@@ -96,7 +96,6 @@
     display: flex;
     position: absolute;
     right: 0;
-    
 }
 
 .OrderPage > div > .ListOrderPage > button {
@@ -125,9 +124,6 @@
 .body > .bodyContent > .rightCol > .SubT > h3 {
     background-color: var(--Background-color);
 }
-/* .body > .bodyContent > .News > p {
-    width: 100%;
-} */
 
 .News > .NewBlog {
     padding: 1.2rem 0rem 1.2rem 0rem;
@@ -157,7 +153,7 @@
 }
 
 @media screen and (max-width: 980px) {
-    .body > .bodyContent > .News {
+    .body > .bodyContent > .rightCol > .News, .SubT {
         max-height: 68rem;
     }
 }
@@ -181,7 +177,10 @@
         margin-top: 4rem;
     }
 
-    .body > .bodyContent > .News {
+    .body > .bodyContent > .rightCol {
+        width: 100%;
+    }
+    .body > .bodyContent > .rightCol > .News, .SubT {
         width: 100%;
         /* border: none; */
     }
@@ -193,7 +192,7 @@
         width: 100%;
     }
     
-    .body > .bodyContent > .News {
+    .body > .bodyContent > .rightCol > .News, .SubT {
         margin-top: 4rem;
     }
 }
