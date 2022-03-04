@@ -18,7 +18,6 @@ var subject = [
                                 <p> {{ post.datecreate }} </p>
                                 <p> {{ post.author }} </p>
                             </div>    
-                            <img allow="autoplay" v-bind:src="post.cap" v-bind:alt="post.title">
                         </div>
                     </div> 
                 </div>
