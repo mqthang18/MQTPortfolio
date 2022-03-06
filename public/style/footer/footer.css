@@ -24,6 +24,7 @@
     }
 
     .footer > .content {
+        padding-top: 1rem;
         width: 98%;
         margin: auto auto;
     }
