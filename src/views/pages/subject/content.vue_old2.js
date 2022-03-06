@@ -15,6 +15,8 @@ var subject = [
                         <div style="text-align:unset;" v-on:click="redirect(post.id, 'post')">
                             <div class="head">
                                 <h3> {{ post.title }} </h1>
+                                <p> {{ post.datecreate }} </p>
+                                <p> {{ post.author }} </p>
                             </div>    
                             <img allow="autoplay" v-bind:src="post.cap" v-bind:alt="post.title">
                         </div>
