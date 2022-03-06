@@ -63,26 +63,31 @@
 .Posts > div {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
     margin: auto;
 }
 
 .Posts > div > .head {
-    padding: 1rem 1rem;
+    padding: 6%;
+    height: 16%;
 }
-
+.Posts > div > .head > h3 {
+    font-size: 1.4rem;
+} 
 .Posts > div > .head p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .Posts > div > img {
     width: 100%;
-    height: 18rem;
+    height: 78%;
 }
 .Posts > div:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.575);
     cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 
 /* List Page */

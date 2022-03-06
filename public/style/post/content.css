@@ -165,6 +165,7 @@
     }
     .body > .bodyContent > .Content {
         margin: auto;
+        width: 92%;
     }
 
     .body > .bodyContent > .Content > .Posts {
