@@ -66,11 +66,13 @@
     width: 95%;
     height: 95%;
     margin: auto;
+    background-color: var(--Background-color);
 }
 
 .Posts > div > .head {
     padding: 6%;
     height: 16%;
+    color: var(--font-color);
 }
 .Posts > div > .head > h3 {
     font-size: 1.4rem;
