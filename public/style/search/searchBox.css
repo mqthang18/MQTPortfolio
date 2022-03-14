@@ -1,0 +1,49 @@
+:root {
+    --bg-color: #0c156b;
+    --c-item: whitesmoke;
+    --h-searchBox: 40px;
+}
+
+.searchBox {
+    height: var(--h-searchBox);
+    width: 50vw;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+}
+
+.searchBox > .textBox {
+    width: 94%;
+    font-size: 90%;
+    padding-left: 1rem;
+}
+
+.searchBox > button {
+    width: var(--h-searchBox);
+    background-color: var(--bg-color);
+    font-size: calc( var(--h-searchBox) - 20px);
+    border: 0.2px grey;
+}
+
+.searchBox > button > i {
+    color: var(--c-item);
+    
+}
+
+.searchBox > input[type="text"] {
+    font-size: calc( var(--h-searchBox) - 20px);
+}
+
+.searchBox > button > i:active {
+  /* background-color: #3e8e41; */
+  /* box-shadow: 0 5px #666; */
+  transform: translateY(1.5px);
+}
+
+@media screen and (max-width: 768px) {
+    .searchBox {
+        width: 100vw;
+        max-width: 100%;
+    }
+}

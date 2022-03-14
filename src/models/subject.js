@@ -51,10 +51,11 @@ try {
 
 async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, ListNews /*API*/, ListSubTopic /*API*/, Category /*Category for navigation bar*/) {
     "use strict";
-    console.log(ListNews);
-    console.log(ListSubTopic);
+    // console.log(ListNews);
+    // console.log(ListSubTopic);
+    // console.log(data);
     var listBlog; 
-    subject = subject[0].concat(nav, subject[1], subject[2], footer, subject[3]);
+    subject = subject[0].concat(nav, searchBox, subject[1], subject[2], footer, subject[3]);
     var test = subject;
     let PageListBlogs = {};
     var OrderPage = [];
@@ -100,6 +101,58 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
             }
         },
         methods: {
+            search: function(id) {
+                const APIurl = "https://docs.google.com/spreadsheets/d/1uSydLZo2x6dG1tVMuvyTQ1uIT6CvYEOVh1m8dibeKr4/gviz/tq?sheet=";
+                var keyword = document.getElementById(id).value;
+                if (keyword.length == 0) {
+                    keyword = ["No post in this query"];
+                } else {
+                    keyword = keyword.split(" ");
+                }
+                var queryStr = 'SELECT A, B, C, D, E, F, G, H, I, J WHERE'; 
+                var Condition = '';
+                for (var i = 0; i < keyword.length; i++) {
+                    var Condition = Condition.concat('(A contains "'+keyword[i]+'") or (B contains "'+keyword[i]+'") or (C contains "'+keyword[i]+'") or (D contains "'+keyword[i]+'") or (E contains "'+keyword[i]+'") or (F contains "'+keyword[i]+'") or (G contains "'+keyword[i]+'") or (H contains "'+keyword[i]+'") or (I contains "'+keyword[i]+'") or (J contains "'+keyword[i]+'") or ');
+                    // console.log(queryStr);   
+                }
+                var Condition = Condition.concat(' (A contains "'+keyword.join(" ")+'") or (B contains "'+keyword.join(" ")+'") or (C contains "'+keyword.join(" ")+'") or (D contains "'+keyword.join(" ")+'") or (E contains "'+keyword.join(" ")+'") or (F contains "'+keyword.join(" ")+'") or (G contains "'+keyword.join(" ")+'") or (H contains "'+keyword.join(" ")+'") or (I contains "'+keyword.join(" ")+'") or (J contains "'+keyword.join(" ")+'")');
+                queryStr = queryStr.concat(Condition);
+                // console.log(queryStr);
+                var query = encodeURIComponent(queryStr);
+                var APIurl_search = APIurl + 'Post' + '&tq=' + query; 
+                // console.log(APIurl_search);
+                fetch (APIurl_search).then(res => res.text()).then(rep=>{
+                    const datasetOne = JSON.parse(rep.substr(47).slice(0,-2));
+                    // Define variable
+                    var dataOne = HandleAPI(datasetOne);
+                    console.log(dataOne)
+                    // Change List Post header text 
+                    var LiPostHeadel = document.getElementsByClassName("LiPostHead");
+                    LiPostHeadel[0].childNodes[0].innerHTML = "Search results";
+                    // Remove all child el in Content block
+                    var Contentel = document.getElementById("Content");
+                    // Change element display in content block
+                    let PageListBlogs = {};
+                    var OrderPage = [];
+                    var List = [];
+                    var getNumPage = Math.ceil(dataOne.length/12);
+                    console.log(getNumPage);
+                    for (var i = 0; i < getNumPage; i++) {
+                        OrderPage.push(i+1);
+                        if (dataOne.length >= 12) {
+                            List.push(dataOne.splice(0,12));
+                        } else {
+                            List.push(dataOne.splice(0,dataOne.length));
+                        }        
+                    }
+                
+                    for (var i = 0; i < OrderPage.length; i++) {
+                        PageListBlogs[OrderPage[i]] = List[i];
+                    }
+                    this.listBlogs = PageListBlogs;
+                    console.log(this.listBlogs);           
+                })
+            },
             redirect: function(IDPost, page) {
                 var url = window.location.href;
                 url = new URL(url);
@@ -126,8 +179,8 @@ async function CallUI(subject /*Vue template*/, topic /*Title*/, data /*API*/, L
                 }
                 
                 url.search = search_params.toString();
-                var new_url = url.toString()
-                window.location.href = new_url
+                var new_url = url.toString();
+                window.location.href = new_url;
             },
             ChangeDisplayRelatedPost: function() {
                 var lengthListNewsPost;

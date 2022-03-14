@@ -41,27 +41,37 @@ fetch (APIurl).then(res => res.text()).then(rep=>{
                 1: ['name', topic],
                 2: ['href', './public/style/subject/content.css']
             }],
-            4: ['body', 'script', {
+            4: ['head', 'link', {
+                0: ['rel', "stylesheet"],
+                1: ['name', topic],
+                2: ['href', './public/style/search/searchBox.css']
+            }],
+            5: ['body', 'script', {
                 0: ['name', 'homepage'],
                 1: ['id', 'homepage'],
                 2: ['src', './src/views/blocks/footer.vue.js'],}
             ],
-            5: ['body', 'script', {
+            6: ['body', 'script', {
+                0: ['name', 'homepage'],
+                1: ['id', 'homepage'],
+                2: ['src', './src/views/blocks/searchBox.vue.js'],}
+            ],
+            7: ['body', 'script', {
                 0: ['name', 'homepage'],
                 1: ['id', 'homepage'],
                 2: ['src', './public/js/homepage/homepage.js'],
             }],
-            6: ['body', 'script', {
+            8: ['body', 'script', {
                 0: ['name', 'homepage'],
                 1: ['id', topic],
                 2: ['src', './src/views/blocks/navigationbar.vue.js'],
             }],
-            7: ['body', 'script', {
+            9: ['body', 'script', {
                 0: ['name', 'homepage'],
                 1: ['id', 'homepage'],
                 2: ['src', './src/views/pages/subject/content.vue.js'],
             }],
-            8: ['body', 'script', {
+            10: ['body', 'script', {
                 0: ['name', 'homepage'],
                 1: ['id', 'homepage'],
                 2: ['src', './src/models/subject.js'],

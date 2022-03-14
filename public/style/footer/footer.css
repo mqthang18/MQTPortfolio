@@ -19,9 +19,9 @@
 }
 
 @media screen and (max-width: 760px) {
-    .body > .LiPostHead {
+    /* .body > .LiPostHead {
         margin-top: 10rem;
-    }
+    } */
 
     .footer > .content {
         padding-top: 1rem;
