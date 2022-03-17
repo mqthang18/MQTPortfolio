@@ -53,7 +53,7 @@
 
 @media screen and (max-width: 760px) {
     .body {display: none;}
-
+    .wrapper {max-width: 100%;}
     .container {
         background-repeat: round;
         background-position: revert;

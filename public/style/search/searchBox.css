@@ -32,7 +32,8 @@
 }
 
 .searchBox > input[type="text"] {
-    font-size: calc( var(--h-searchBox) - 20px);
+    font-size: calc( var(--h-searchBox) - 25px);
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .searchBox > button > i:active {
@@ -44,6 +45,6 @@
 @media screen and (max-width: 768px) {
     .searchBox {
         width: 100vw;
-        max-width: 100%;
+        /* max-width: 100%; */
     }
 }

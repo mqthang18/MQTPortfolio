@@ -186,7 +186,9 @@
 
     .body > .bodyContent > .Content > .Posts {
         width: 100%;
-        margin-top: 4rem;
+        max-width: 45vw;
+        margin: auto;
+        /* margin-top: 4rem; */
     }
 
     .body > .bodyContent > .rightCol {
@@ -206,5 +208,24 @@
     
     .body > .bodyContent > .rightCol > .News, .SubT {
         margin-top: 4rem;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .body > .bodyContent > .Content > .Posts {
+        width: 100%;
+        max-width: unset;
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    :root {
+        --Content-width: 100vw;
+    }
+    .body > .bodyContent > .Content > .Posts {
+        width: 100%;
+        max-width: unset;
+        margin-top: 1rem;
     }
 }
