@@ -1,3 +1,7 @@
+:root {
+    --CardI-width: 20px; 
+    --CardI-height: calc( 2 * var(--CardI-width) );
+}
 .body {
     /* background-color: white; */
     padding-top: 5rem;
@@ -5,16 +9,45 @@
     margin: auto;
     font-size: 1.6rem;
     font-family: Calibri, sans-serif;
-    
 }
 
+.body p, ol, ul {text-align: justify;}
 .body ol {
     padding-left: 5rem;
 }
+.body ol > li > ul {
+    padding-left: 1rem;
+}
 
+.P1 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.P1 > .right, .left {width: 50%;}
+.P1 > div > img {
+    width: 150px;
+    height: 200px;
+    /* position: relative;  */
+    padding-left: 6vw;
+}
 
+@media screen and (max-width: 760px) {
+    .P1 {
+        flex-direction: column;
+    }
+    .P1 > .left {
+        width: 100%;
+    }
 
+    .P1 > .right {
+        width: 100%;
+        text-align: center;
+    }
+    .P1 > .right > img {
+        padding: unset;
 
+    }
+}
 
 
 
