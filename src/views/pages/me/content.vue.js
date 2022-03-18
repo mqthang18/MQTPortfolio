@@ -11,7 +11,7 @@ var me = [
             <h3>Personal info</h3>
             <p>Welcome to my portfolio! My name is Thang. I'm in Long Xuyen, Viet Nam.</p>
             <p>My major is data engineer and biotech.</p>
-            <p>My favourite is studying programming languages and solving data problems by math.</p>
+            <p>My favourite is studying programming languages and solving data problems.</p>
             <hr>
             <h3>Personal skills</h3>
             <ol>
